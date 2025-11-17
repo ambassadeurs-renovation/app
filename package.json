@@ -30,7 +30,6 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
     "@types/js-yaml": "^4.0.9",
-    "@types/react": "^19.2.5",
-    "tsup": "^8.5.1"
+    "@types/react": "^19.2.5"
   }
 }
