@@ -1,0 +1,14 @@
+---
+import { Common } from "dpe-audit";
+import { getEtiquetteEnergie } from "./utils";
+
+interface Props {
+    class?: string;
+    value: Common.EtiquetteEnergie | null;
+}
+
+const { value = null, class: className = "" }: Props = Astro.props;
+const Image = getEtiquetteEnergie(value);
+---
+
+<Image class={className} />

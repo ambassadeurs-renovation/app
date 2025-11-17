@@ -1,0 +1,69 @@
+---
+import type { Diagnostic } from "dpe-audit";
+import { TitleArticle, Chip, ListItemComparaison } from "@component/Layout";
+
+interface Props {
+    diagnostic: Diagnostic.IDiagnostic;
+    simulation: Diagnostic.IDiagnostic;
+}
+
+const { diagnostic, simulation }: Props = Astro.props;
+---
+
+<article class="grid gap">
+    <TitleArticle title="Déperditions thermiques" />
+
+    <ul class="list">
+        <ListItemComparaison label="Déperditions">
+            <Chip
+                slot="origin"
+                value={diagnostic.enveloppe.data?.deperditions.gv}
+                compare={simulation.enveloppe.data?.deperditions.gv}
+            />
+            <Chip
+                slot="target"
+                value={simulation.enveloppe.data?.deperditions.gv}
+                compare={diagnostic.enveloppe.data?.deperditions.gv}
+            />
+        </ListItemComparaison>
+
+        <ListItemComparaison label="Déperditions par les parois">
+            <Chip
+                slot="origin"
+                value={diagnostic.enveloppe.data?.deperditions.dp}
+                compare={simulation.enveloppe.data?.deperditions.dp}
+            />
+            <Chip
+                slot="target"
+                value={simulation.enveloppe.data?.deperditions.dp}
+                compare={diagnostic.enveloppe.data?.deperditions.dp}
+            />
+        </ListItemComparaison>
+
+        <ListItemComparaison label="Déperditions par les ponts thermiques">
+            <Chip
+                slot="origin"
+                value={diagnostic.enveloppe.data?.deperditions.pt}
+                compare={simulation.enveloppe.data?.deperditions.pt}
+            />
+            <Chip
+                slot="target"
+                value={simulation.enveloppe.data?.deperditions.pt}
+                compare={diagnostic.enveloppe.data?.deperditions.pt}
+            />
+        </ListItemComparaison>
+
+        <ListItemComparaison label="Déperditions par renouvellement d'air">
+            <Chip
+                slot="origin"
+                value={diagnostic.enveloppe.data?.deperditions.dr}
+                compare={simulation.enveloppe.data?.deperditions.dr}
+            />
+            <Chip
+                slot="target"
+                value={simulation.enveloppe.data?.deperditions.dr}
+                compare={diagnostic.enveloppe.data?.deperditions.dr}
+            />
+        </ListItemComparaison>
+    </ul>
+</article>

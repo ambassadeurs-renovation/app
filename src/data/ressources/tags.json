@@ -1,0 +1,19 @@
+{
+  "themes": [
+    "Climat",
+    "Financement",
+    "Rénovation",
+    "Isolation",
+    "Confort d'été",
+    "Interface",
+    "Chauffage",
+    "ECS",
+    "Ventilation",
+    "Refroidissement"
+  ],
+  "formats": [
+    "Vidéo",
+    "Guide",
+    "Outil"
+  ]
+}

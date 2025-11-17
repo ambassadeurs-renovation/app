@@ -1,0 +1,59 @@
+---
+import { getPostes, getGestes, TypePoste } from "../../data/gestes";
+import { Tags } from "../Layout/Tags/index.ts";
+import Geste from "./Geste.astro";
+
+interface Props {
+    actives?: string[];
+}
+
+const { actives = [] } = Astro.props;
+
+const postes = getPostes();
+const gestes = getGestes()
+
+const tags = postes
+    .filter((poste) => gestes.some((geste) => geste.poste === poste.type))
+    .map((poste) => poste.titre);
+
+const poste = (type: TypePoste) =>
+    postes.find((poste) => poste.type === type)?.titre;
+---
+
+<div class="grid gap">
+    <Tags key="gestes" tags={tags} />
+
+    <form method="POST" action="/mes-gestes/calcule" class="grid gap-8">
+        <div class="gestes flex flex-wrap items-stretch gap">
+            {
+                gestes.map((item) => (
+                    <div
+                        class="geste active"
+                        data-tags-key="gestes"
+                        data-tags={poste(item.poste)}
+                    >
+                        <Geste
+                            geste={item}
+                            active={actives.includes(item.type)}
+                        />
+                    </div>
+                ))
+            }
+        </div>
+        <div class="flex justify-end">
+            <button class="btn btn-primary grow md:flex-none" type="submit">
+                Évaluer
+            </button>
+        </div>
+    </form>
+</div>
+
+<style>
+    .geste {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+</style>

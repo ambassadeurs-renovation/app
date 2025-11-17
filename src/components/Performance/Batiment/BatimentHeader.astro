@@ -1,0 +1,21 @@
+---
+import { Batiment as BatimentType } from "dpe-audit";
+
+interface Props {
+    class?: string;
+    batiment: BatimentType.Batiment;
+}
+
+const { batiment, class: className = "" }: Props = Astro.props;
+---
+
+<div class:list={["bg-primary pb-2", className]}>
+    <div class="content text-center text-white">
+        <p class="font-medium">
+            {BatimentType.typeBatimentToString(batiment.type)}
+        </p>
+        <p>{batiment.adresse.nom}</p>
+        <p>Surface : {batiment.surface_habitable} m²</p>
+        <p>Année de construction : {batiment.annee_construction}</p>
+    </div>
+</div>

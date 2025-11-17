@@ -1,0 +1,8 @@
+export { default as PerformanceConfortEte } from './PerformanceConfortEte.astro'
+export { default as PerformanceConfortEteLabel } from './PerformanceConfortEteLabel.astro'
+export { default as PerformanceEnveloppe } from './PerformanceEnveloppe.astro'
+export { default as PerformanceElements } from './PerformanceElements.astro'
+export { default as PerformanceIsolation } from './PerformanceIsolation.astro'
+export { default as PerformanceIsolationLabel } from './PerformanceIsolationLabel.astro'
+export { default as PerformanceParoiLabel } from './PerformanceParoiLabel.astro'
+export { default as RepartitionDeperditions } from './RepartitionDeperditions.astro'

@@ -7,7 +7,22 @@
 :root {
   --bg-color: #f0f8ff;
   --border-color: #f0f8ff;
-  --color-disabled: #EDF1F6;
+  --color-border: #f0f8ff;
+  --color-disabled: #edf1f6;
+}
+
+@utility gap {
+  gap: calc(var(--spacing) * 6);
+}
+
+@utility scrollbar-x-none {
+  overflow-x: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 body {
@@ -15,12 +30,33 @@ body {
   font-size: 0.9rem;
 }
 
-ul {
+.container {
+  width: 90%;
+  max-width: var(--container-6xl);
+  margin: 0 auto;
+}
+
+main {
+  padding: --spacing(8) 0;
+}
+
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  padding: --spacing(6) --spacing(4);
+}
+
+.modal-box {
+  max-height: 90%;
+}
+
+ul:not(.list) {
   list-style: initial;
   padding-left: 1.5rem;
 }
 
-ol {
+ol:not(.list) {
   list-style: decimal;
   padding-left: 1.5rem;
 }
@@ -72,16 +108,36 @@ b {
   fill: var(--bg-color);
 }
 
-.overflow-x-auto {
-  overflow-x: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
+.tab-content:not(.active) {
+  display: none;
 }
 
-.gap {
-  gap: calc(var(--spacing) * 4);
+.tab-content.active {
+  display: block;
+}
+
+.table {
+  th,
+  td {
+    text-align: center;
+    background-color: transparent;
+    white-space: nowrap;
+
+    &:first-child {
+      width: 100%;
+      text-align: left;
+      white-space: normal;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    svg {
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+  }
+
+  thead th,
+  tfoot td {
+    font-weight: 600;
+  }
 }

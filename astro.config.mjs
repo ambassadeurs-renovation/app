@@ -3,7 +3,9 @@ import { defineConfig } from 'astro/config'
 import tailwindcss from '@tailwindcss/vite'
 import node from '@astrojs/node'
 
-import icon from 'astro-icon';
+import icon from 'astro-icon'
+
+import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,5 +17,7 @@ export default defineConfig({
     mode: 'standalone'
   }),
 
-  integrations: [icon()]
+  integrations: [icon({
+    iconDir: 'src/assets/icons'
+  }), react()]
 })

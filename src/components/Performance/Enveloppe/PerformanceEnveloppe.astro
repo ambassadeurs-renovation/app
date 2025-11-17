@@ -1,0 +1,87 @@
+---
+import { Common, Enveloppe } from "dpe-audit";
+import { TitleArticle, Details, ListItem } from "@component/Layout";
+import PerformanceIsolationLabel from "./PerformanceIsolationLabel.astro";
+import PerformanceConfortEteLabel from "./PerformanceConfortEteLabel.astro";
+
+interface Props {
+    enveloppe: Enveloppe.IEnveloppe;
+    class?: string;
+}
+
+const { enveloppe, class: className = "" }: Props = Astro.props;
+
+const data = {
+    ubat: enveloppe.data?.deperditions.ubat ?? null,
+    performance_isolation: enveloppe.data?.deperditions.performance ?? null,
+    gv: enveloppe.data?.deperditions.gv ?? null,
+    performance_confort_ete: enveloppe.data?.confort_ete.performance ?? null,
+    inertie: enveloppe.data?.inertie ?? null,
+    isolation_plancher_haut:
+        enveloppe.data?.confort_ete.isolation_plancher_haut ?? null,
+    presence_protection_solaire:
+        enveloppe.data?.confort_ete.presence_protection_solaire ?? null,
+    presence_brasseur_air:
+        enveloppe.data?.confort_ete.presence_brasseur_air ?? null,
+    logement_traversant:
+        enveloppe.data?.confort_ete.logement_traversant ?? null,
+};
+---
+
+<div class:list={["card grid gap-6", className]}>
+    <TitleArticle
+        title="Performance de l'enveloppe"
+        modal="performance-enveloppe"
+    />
+
+    <ul class="list">
+        <ListItem label="Ubat">
+            <PerformanceIsolationLabel
+                value={data.performance_isolation}
+                text={data.ubat}
+            />
+        </ListItem>
+
+        <ListItem label="Déperditions">
+            {null !== data.gv ? `${Math.round(data.gv)} W/K` : "-"}
+        </ListItem>
+
+        <ListItem label="Confort d'été">
+            <PerformanceConfortEteLabel value={data.performance_confort_ete} />
+        </ListItem>
+
+        <ListItem label="Inertie">
+            {data.inertie ? Enveloppe.inertieToString(data.inertie) : "-"}
+        </ListItem>
+
+        <ListItem label="Isolation des planchers hauts">
+            {
+                data.isolation_plancher_haut !== null
+                    ? Common.booleanToString(data.isolation_plancher_haut)
+                    : "-"
+            }
+        </ListItem>
+        <ListItem label="Présence de protections solaires">
+            {
+                data.presence_protection_solaire !== null
+                    ? Common.booleanToString(data.presence_protection_solaire)
+                    : "-"
+            }
+        </ListItem>
+        <ListItem label="Logement traversant">
+            {
+                data.logement_traversant !== null
+                    ? Common.booleanToString(data.logement_traversant)
+                    : "-"
+            }
+        </ListItem>
+    </ul>
+
+    <Details>
+        <p><b>Ubat : </b>Coefficient de déperditions thermiques du bâtiment</p>
+        <p>
+            <b>Déperditions : </b>Somme de l'ensemble des déperditions
+            thermiques
+        </p>
+    </Details>
+</div>

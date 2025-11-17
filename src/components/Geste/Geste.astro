@@ -1,0 +1,88 @@
+---
+import { Icon } from "astro-icon/components";
+import PosteIcon from "./PosteIcon.astro";
+import { type Geste as GesteType } from "../../data/gestes";
+
+interface Props {
+    geste: GesteType;
+    active: boolean;
+    class?: string;
+}
+
+const { geste, active, class: className = "" } = Astro.props;
+---
+
+<label class="block w-[180px] h-full relative hover:cursor-pointer">
+    <input
+        type="checkbox"
+        name="gestes"
+        checked={active}
+        value={geste.type}
+        aria-label={geste.titre}
+    />
+    <div
+        class:list={[
+            "geste h-full grid gap py-4 px-2 rounded-lg",
+            className,
+        ]}
+    >
+        <div class="geste-icon">
+            <PosteIcon poste={geste.poste} class="m-auto" />
+        </div>
+
+        <div class="geste-content text-center">
+            <div class="font-semibold mb-4">{geste.titre}</div>
+            {geste.description.split("\n").map((line) => <p>{line}</p>)}
+        </div>
+
+        <div class="geste-actions flex justify-end">
+            <div class="add btn btn-circle btn-ghost btn-lg">
+                <Icon name="ui/double-check" class="icon color-success" />
+            </div>
+            <div class="remove btn btn-circle btn-ghost btn-lg">
+                <Icon name="ui/cancel" class="icon color-error" />
+            </div>
+        </div>
+    </div>
+</label>
+
+<style>
+    input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+    .geste {
+        border: solid 3px var(--color-border);
+    }
+    input:not(:checked) + .geste {
+        .remove {
+            display: none;
+        }
+    }
+    input:checked + .geste {
+        border-color: var(--color-primary);
+
+        .add {
+            display: none;
+        }
+    }
+    .active {
+        border-color: var(--color-primary);
+
+        .add .icon {
+            @extends .disabled;
+            color: var(--color-disabled);
+        }
+        .remove .icon {
+            @extends .color-error;
+            color: var(--color-error);
+        }
+    }
+</style>

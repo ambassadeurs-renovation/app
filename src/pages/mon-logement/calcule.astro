@@ -1,0 +1,18 @@
+---
+export const prerender = false;
+
+import { GET, POST } from "../../api";
+import { setDiagnostic } from "../../stores/user";
+
+if (Astro.request.method === "POST") {
+    const data = await GET();
+
+    if (null === data) {
+        console.error("POST request failed");
+        return Astro.redirect("/mon-logement/recherche");
+    }
+    setDiagnostic(data);
+    return Astro.redirect("/mon-logement");
+}
+return Astro.redirect("/mon-logement/recherche");
+---

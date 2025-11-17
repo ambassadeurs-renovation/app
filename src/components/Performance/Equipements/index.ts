@@ -1,0 +1,5 @@
+export { default as PerformanceChauffage } from './PerformanceChauffage.astro'
+export { default as PerformanceEcs } from './PerformanceEcs.astro'
+export { default as PerformanceVentilation } from './PerformanceVentilation.astro'
+export { default as PerformanceRefroidissement } from './PerformanceRefroidissement.astro'
+export { default as PerformanceEquipements } from './PerformanceEquipements.astro'

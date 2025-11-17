@@ -1,0 +1,101 @@
+---
+import { Enveloppe } from "dpe-audit";
+import { getPerformanceConfortEteIcon } from "./utils";
+
+interface Props {
+    value: Enveloppe.PerformanceConfortEte;
+    class?: string;
+}
+
+const { value, class: className = "" }: Props = Astro.props;
+
+const Icon = getPerformanceConfortEteIcon(value);
+
+const enums: Array<Enveloppe.PerformanceConfortEte> = [
+    Enveloppe.PerformanceConfortEte.bon,
+    Enveloppe.PerformanceConfortEte.moyen,
+    Enveloppe.PerformanceConfortEte.insuffisant,
+];
+
+const data = enums.map((item) => {
+    return {
+        value: item,
+        text: Enveloppe.confortEteToString(item),
+        active: item === value,
+    };
+});
+---
+
+<div class:list={["confort-ete", className]} data-performance={value}>
+    {
+        data.map((item) => (
+            <div class:list={["confort-ete-item", { active: item.active }]}>
+                {item.active && Icon && (
+                    <div class="confort-ete-icon">
+                        <Icon width={72} height={72} />
+                    </div>
+                )}
+                <div class="confort-ete-value">{item.text}</div>
+            </div>
+        ))
+    }
+</div>
+
+<style>
+    .confort-ete[data-performance="bon"] .active {
+        background-color: #dbede3;
+
+        .confort-ete-value {
+            background-color: #2caf85;
+            color: #ffffff;
+        }
+        .confort-ete-icon svg {
+            fill: #2caf85;
+        }
+    }
+    .confort-ete[data-performance="moyen"] .active {
+        background-color: #fce5cd;
+
+        .confort-ete-value {
+            background-color: #f49838;
+            color: #ffffff;
+        }
+        .confort-ete-icon svg {
+            fill: #f49838;
+        }
+    }
+    .confort-ete[data-performance="insuffisant"] .active {
+        background-color: #f8c8c8;
+
+        .confort-ete-value {
+            background-color: #e52322;
+            color: #ffffff;
+        }
+        .confort-ete-icon svg {
+            fill: #e52322;
+        }
+    }
+    .confort-ete .confort-ete-item {
+        background-color: var(--color-base-200);
+        text-align: center;
+
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+        .confort-ete-icon {
+            padding: 1rem;
+
+            svg {
+                margin: 0 auto;
+            }
+        }
+        .confort-ete-value {
+            width: 100%;
+            text-align: center;
+            padding: 0.5rem;
+            color: var(--text-disabled);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    }
+</style>

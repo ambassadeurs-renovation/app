@@ -1,0 +1,119 @@
+---
+import { Enveloppe } from "dpe-audit";
+import Icon from "@svg/enveloppe.svg";
+
+interface Props {
+    class?: string;
+    value: Enveloppe.Performance;
+}
+
+const { value, class: className = "" }: Props = Astro.props;
+
+const performances: Array<Enveloppe.Performance> = [
+    Enveloppe.Performance.tres_bonne,
+    Enveloppe.Performance.bonne,
+    Enveloppe.Performance.moyenne,
+    Enveloppe.Performance.insuffisante,
+];
+
+const data = performances.map((item) => {
+    return {
+        value: item,
+        text: Enveloppe.performanceToString(item),
+        active: item === value,
+    };
+});
+---
+
+<div
+    class:list={["performance-isolation", className]}
+    data-performance={performance}
+>
+    {
+        data.map((item) => (
+            <div
+                class:list={[
+                    "performance-isolation-item",
+                    { active: item.active },
+                ]}
+            >
+                {item.active && (
+                    <div class="performance-isolation-icon">
+                        <Icon width={72} height={72} />
+                    </div>
+                )}
+                <div class="performance-isolation-value">{item.text}</div>
+            </div>
+        ))
+    }
+</div>
+
+<style>
+    .performance-isolation[data-performance="tres_bonne"] .active {
+        background-color: #dbede3;
+
+        .performance-isolation-value {
+            background-color: #2caf85;
+            color: #ffffff;
+        }
+        .performance-isolation-icon svg {
+            fill: #2caf85;
+        }
+    }
+    .performance-isolation[data-performance="bonne"] .active {
+        background-color: #eaf3e0;
+
+        .performance-isolation-value {
+            background-color: #a5cc74;
+            color: #ffffff;
+        }
+        .performance-isolation-icon svg {
+            fill: #a5cc74;
+        }
+    }
+    .performance-isolation[data-performance="moyenne"] .active {
+        background-color: #fce5cd;
+
+        .performance-isolation-value {
+            background-color: #f49838;
+            color: #ffffff;
+        }
+        .performance-isolation-icon svg {
+            fill: #f49838;
+        }
+    }
+    .performance-isolation[data-performance="insuffisante"] .active {
+        background-color: #f8c8c8;
+
+        .performance-isolation-value {
+            background-color: #e52322;
+            color: #ffffff;
+        }
+        .performance-isolation-icon svg {
+            fill: #e52322;
+        }
+    }
+    .performance-isolation .performance-isolation-item {
+        background-color: var(--color-base-200);
+        text-align: center;
+
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+        .performance-isolation-icon {
+            padding: 1rem;
+
+            svg {
+                margin: 0 auto;
+            }
+        }
+        .performance-isolation-value {
+            width: 100%;
+            text-align: center;
+            padding: 0.5rem;
+            color: var(--text-disabled);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    }
+</style>

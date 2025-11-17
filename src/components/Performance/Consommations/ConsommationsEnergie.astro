@@ -1,0 +1,52 @@
+---
+import { Common } from "dpe-audit";
+import { IconEnergie } from "@component/Performance";
+import { dataTableByEnergies } from "./utils";
+
+interface Props {
+    class?: string;
+    consommations: Common.Consommation[];
+}
+
+const { consommations, class: className = "" }: Props = Astro.props;
+
+const { tableBody, tableFooter } = dataTableByEnergies(consommations);
+---
+
+<table class:list={["table scrollbar-x-none xl:overflow-x-auto", className]}>
+    <thead>
+        <tr>
+            <th>Energie</th>
+            <th>EP</th>
+            <th>EF</th>
+            <th>EGES</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {
+            tableBody.map((item) => (
+                <tr>
+                    <td>
+                        <IconEnergie
+                            energie={item.energie}
+                            class="color-primary w-4 h-4"
+                        />
+                        {Common.energieToString(item.energie)}
+                    </td>
+                    <td>{Math.round(item.cef).toLocaleString()} %</td>
+                    <td>{Math.round(item.cep).toLocaleString()} %</td>
+                    <td>{Math.round(item.eges).toLocaleString()} %</td>
+                </tr>
+            ))
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>Total</td>
+            <td>{Math.round(tableFooter.cef).toLocaleString()}</td>
+            <td>{Math.round(tableFooter.cep).toLocaleString()}</td>
+            <td>{Math.round(tableFooter.eges).toLocaleString()}</td>
+        </tr>
+    </tfoot>
+</table>

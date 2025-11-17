@@ -1,0 +1,15 @@
+---
+import type { Diagnostic } from "dpe-audit";
+import { ComparaisonBilan } from "./Comparaison";
+
+interface Props {
+    diagnostic: Diagnostic.IDiagnostic;
+    simulation: Diagnostic.IDiagnostic;
+}
+
+const { diagnostic, simulation }: Props = Astro.props;
+---
+
+<div class="grid gap">
+    <ComparaisonBilan diagnostic={diagnostic} simulation={simulation} />
+</div>

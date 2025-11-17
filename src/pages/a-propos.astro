@@ -1,18 +1,19 @@
 ---
-import { Container, Layout, Main, Section, Title } from "../components/Layout";
+import Layout from "@layout/Layout.astro";
+import { TitleSection } from "@component/Layout";
 import Content from "../contents/a-propos.md";
 ---
 
-<Layout>
-	<Container size="md">
-		<Main>
-			<Section>
-				<Title>👋 Qui sommes-nous ?</Title>
+<Layout title="👋 Qui sommes-nous ?">
+	<div class="container">
+		<main>
+			<section class="card">
+				<TitleSection>👋 Qui sommes-nous ?</TitleSection>
 
 				<div class="markdown-body">
 					<Content />
 				</div>
-			</Section>
-		</Main>
-	</Container>
+			</section>
+		</main>
+	</div>
 </Layout>

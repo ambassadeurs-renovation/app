@@ -1,0 +1,47 @@
+---
+import { Common, Ventilation } from "dpe-audit";
+import { IconEnergieTooltip } from "@component/Performance";
+
+interface Props {
+    generateurs: Ventilation.Generateur.IGenerateur[];
+    class?: string;
+}
+
+const { generateurs, class: className = "" }: Props = Astro.props;
+
+const tableData = generateurs.map((item) => ({
+    description: item.description,
+    type: item.type
+        ? Ventilation.Generateur.typeGenerateurToString(item.type)
+        : "-",
+    annee: item.annee_installation ?? "-",
+}));
+---
+
+<div class={className}>
+    <table class="table table-element">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>ENERGIE</th>
+                <th>ANNÉE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {
+                tableData.map((item) => (
+                    <tr>
+                        <td>{item.type}</td>
+                        <td>
+                            <IconEnergieTooltip
+                                energie={Common.Energie.electricite}
+                                class="color-primary w-4 h-4"
+                            />
+                        </td>
+                        <td>{item.annee}</td>
+                    </tr>
+                ))
+            }
+        </tbody>
+    </table>
+</div>

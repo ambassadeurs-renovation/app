@@ -1,0 +1,46 @@
+---
+import type { Diagnostic } from "dpe-audit";
+import { ListItem } from "@component/Layout";
+import ClasseClimat from "../Bilan/ClasseClimat.astro";
+import ClasseEnergie from "../Bilan/ClasseEnergie.astro";
+
+interface Props {
+    diagnostic: Diagnostic.IDiagnostic;
+    simulation: Diagnostic.IDiagnostic;
+}
+
+const { diagnostic, simulation }: Props = Astro.props;
+---
+
+<ul class="list max-w-xs">
+    <ListItem label="Etiquette énergie">
+        <div class="flex gap-2 items-center">
+            <ClasseEnergie
+                value={diagnostic.data?.bilan.etiquette_energie}
+                class="w-8 h-8"
+            />
+
+            <span><b> -> </b></span>
+
+            <ClasseEnergie
+                value={simulation.data?.bilan.etiquette_energie}
+                class="w-8 h-8"
+            />
+        </div>
+    </ListItem>
+    <ListItem label="Etiquette climat">
+        <div class="flex gap-2 items-center">
+            <ClasseClimat
+                value={diagnostic.data?.bilan.etiquette_climat}
+                class="w-8 h-8"
+            />
+
+            <span><b> -> </b></span>
+
+            <ClasseClimat
+                value={simulation.data?.bilan.etiquette_climat}
+                class="w-8 h-8"
+            />
+        </div>
+    </ListItem>
+</ul>

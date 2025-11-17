@@ -1,0 +1,23 @@
+---
+import Icon from "@icon/ui/circle-info.svg";
+import { ModalButton } from "../Modal";
+
+interface Props {
+    title: string;
+    modal?: string | null;
+}
+
+const { title, modal = null }: Props = Astro.props;
+---
+
+<div class="flex grow items-center">
+    {modal && <div class="w-5 h-5" />}
+
+    <h2 class="grow font-semibold text-center">{title}</h2>
+
+    {modal && (
+        <ModalButton target={modal} class="">
+            <Icon class="icon w-4 h-4" />
+        </ModalButton>
+    )}
+</div>

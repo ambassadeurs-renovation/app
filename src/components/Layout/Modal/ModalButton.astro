@@ -1,0 +1,12 @@
+---
+interface Props {
+    target: string;
+    class?: string;
+}
+
+const { target, class: className = "" }: Props = Astro.props;
+---
+
+<button class:list={["btn btn-circle btn-ghost modal-btn", className]} data-name={target}>
+    <slot />
+</button>

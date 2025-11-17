@@ -1,0 +1,74 @@
+---
+import Layout from "@layout/Layout.astro";
+import { AppBar, TitleSection } from "@component/Layout";
+import { Recherche as DiagnosticRecherche } from "@component/Diagnostic";
+---
+
+<Layout title="Mon logement">
+    <div class="container">
+        <main>
+            <section class="card gap">
+                <TitleSection>
+                    🤔 Comprendre la <span class="text-primary"
+                        >performance</span
+                    > des logements en <span class="text-primary"
+                        >quelques minutes</span
+                    >
+                </TitleSection>
+
+                <div class="content">
+                    <p>
+                        Bienvenu 👋 ! Vous souhaitez en savoir plus sur la
+                        performance énergétique de votre logement ? L'audit
+                        énergétique est la clé pour comprendre et améliorer
+                        votre consommation. Découvrez comment rendre votre
+                        maison plus économe et respectueuse de l'environnement !
+                        🌍💰
+                    </p>
+
+                    <p><strong>Comment ça marche ?</strong></p>
+
+                    <p>Vous avez deux options simples pour commencer :</p>
+
+                    <ol>
+                        <li>
+                            <strong>Sélectionner un exemple type</strong> : C'est
+                            parfait pour vous inspirer et prendre en main l'application
+                            !
+                        </li>
+                        <li>
+                            <strong>Rechercher un diagnostic existant</strong> :
+                            Entrez l'adresse d'un logement pour voir si un Diagnostic
+                            de Performance Energétique a déjà été effectué. C'est
+                            rapide et pratique !
+                        </li>
+                    </ol>
+
+                    <p>
+                        Prêts à faire de votre logement un modèle d'efficacité
+                        énergétique ? Allons-y ! 💪🏆
+                    </p>
+                </div>
+
+                <form
+                    method="POST"
+                    action="/mon-logement/calcule"
+                    class="w-full"
+                >
+                    <button class="btn btn-primary w-90 max-w-md mx-auto block">
+                        Je commence avec un cas d'usage
+                    </button>
+                </form>
+            </section>
+        </main>
+    </div>
+</Layout>
+
+<style>
+    .content {
+        p,
+        li {
+            margin: 1rem 0;
+        }
+    }
+</style>

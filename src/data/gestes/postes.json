@@ -1,0 +1,42 @@
+[
+  {
+    "titre": "Isolation des murs",
+    "type": "isolation-murs"
+  },
+  {
+    "titre": "Isolation des murs",
+    "type": "isolation-murs"
+  },
+  {
+    "titre": "Isolation des planchers bas",
+    "type": "isolation-planchers-bas"
+  },
+  {
+    "titre": "Isolation des planchers hauts",
+    "type": "isolation-planchers-hauts"
+  },
+  {
+    "titre": "Remplacement des menuiseries",
+    "type": "remplacement-menuiseries"
+  },
+  {
+    "titre": "Protection solaire",
+    "type": "protection-solaire"
+  },
+  {
+    "titre": "Ventilation",
+    "type": "ventilation"
+  },
+  {
+    "titre": "Chauffage",
+    "type": "chauffage"
+  },
+  {
+    "titre": "Eau chaude sanitaire",
+    "type": "eau-chaude-sanitaire"
+  },
+  {
+    "titre": "Refroidissement",
+    "type": "refroidissement"
+  }
+]

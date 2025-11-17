@@ -1,0 +1,29 @@
+---
+interface Props {
+    summary?: string;
+}
+
+const { summary = "Légende" } = Astro.props;
+---
+
+<details>
+    <summary>{summary}</summary>
+    <div class="content"><slot /></div>
+</details>
+
+<style>
+    details {
+        border-radius: 1rem;
+        padding: 1rem;
+        background-color: var(--color-base-300);
+    }
+    summary:hover {
+        cursor: pointer;
+    }
+    summary {
+        font-weight: 600;
+    }
+    .content {
+        margin-top: 1rem;
+    }
+</style>

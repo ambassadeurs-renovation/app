@@ -1,10 +1,10 @@
 ---
-import { Layout } from "../components/Layout";
-import { Partenaires } from "../components/Partenaires";
-import AmbassadeurImg from "../assets/home-ambassadeur.svg";
+import Layout from "@layout/Layout.astro";
+import { Partenaires } from "@component/Partenaires";
+import Hero from "@svg/home-ambassadeur.svg";
 ---
 
-<Layout>
+<Layout title="🚀 Ambassadeur Rénov'">
     <main class="bg-white">
         <section class="bg-color px-6 py-12">
             <div class="max-w-[1024px] m-auto">
@@ -25,14 +25,14 @@ import AmbassadeurImg from "../assets/home-ambassadeur.svg";
                             >.
                         </p>
                         <a
-                            href="./mon-audit/recherche"
+                            href="./mon-logement/recherche"
                             class="btn btn-lg btn-primary w-3xs m-auto md:m-0 rounded-full"
                         >
                             Commencer
                         </a>
                     </div>
                     <div class="grow hidden md:block">
-                        <AmbassadeurImg class="w-full" />
+                        <Hero class="w-full" />
                     </div>
                 </div>
             </div>
@@ -48,12 +48,15 @@ import AmbassadeurImg from "../assets/home-ambassadeur.svg";
                     Construisez le bâtiment de demain
                 </h2>
                 <p class="text-lg">
-                    La <b class="text-primary">rénovation énergétique</b> est un enjeu majeur de la lutte
-                    contre le réchauffement climatique et raréfaction des
-                    ressources. Devenir Ambassadeur, c'est contribuer activement
-                    à relever ce défi en <b class="text-primary">sensibilisant son entourage</b> aux gestes
-                    les plus efficaces pour réduire <b class="text-primary">l'empreinte énergétique et
-                    carbone</b> des logements.
+                    La <b class="text-primary">rénovation énergétique</b> est un
+                    enjeu majeur de la lutte contre le réchauffement climatique et
+                    raréfaction des ressources. Devenir Ambassadeur, c'est contribuer
+                    activement à relever ce défi en <b class="text-primary"
+                        >sensibilisant son entourage</b
+                    > aux gestes les plus efficaces pour réduire <b
+                        class="text-primary"
+                        >l'empreinte énergétique et carbone</b
+                    > des logements.
                 </p>
                 <p class="text-lg font-medium text-secondary">
                     L'avenir du bâtiment est entre vos mains
@@ -62,3 +65,9 @@ import AmbassadeurImg from "../assets/home-ambassadeur.svg";
         </section>
     </main>
 </Layout>
+
+<style>
+    main {
+        padding: 0;
+    }
+</style>

@@ -1,0 +1,1747 @@
+{
+  "id": "019a922d-7cbe-70df-9d9c-3fa03edd0425",
+  "date_visite": "2021-10-07",
+  "date_etablissement": "2021-10-09",
+  "batiment": {
+    "type": "maison",
+    "annee_construction": 1970,
+    "altitude": 0,
+    "logements": 1,
+    "surface_habitable": 110,
+    "hauteur_sous_plafond": 2.5,
+    "materiaux_anciens": false,
+    "adresse": {
+      "nom": "112 avenue Pierre Semard 84000 Avignon",
+      "code_postal": "84000",
+      "code_insee": "84007",
+      "commune": "Avignon",
+      "ban_id": null
+    },
+    "rnb_id": null
+  },
+  "enveloppe": {
+    "exposition": "exposition_simple",
+    "q4pa_conv": null,
+    "presence_brasseurs_air": false,
+    "niveaux": [
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d08690379",
+        "description": "Niveau reconstitué",
+        "surface": 110,
+        "inertie_paroi_verticale": "lourde",
+        "inertie_plancher_bas": "lourde",
+        "inertie_plancher_haut": "legere",
+        "data": {
+          "inertie": "lourde"
+        }
+      }
+    ],
+    "locaux_non_chauffes": [],
+    "doubles_fenetres": [],
+    "masques": [],
+    "baies": [
+      {
+        "id": "019a91d0-24e6-739a-a923-e62cfcdb57b6",
+        "description": "Fenêtre 1",
+        "type": "fenetre_battante",
+        "presence_protection_solaire": false,
+        "type_fermeture": "volets_roulants_pvc_bois_epaisseur_lte_12_mm",
+        "annee_installation": null,
+        "ug": null,
+        "uw": null,
+        "ujn": null,
+        "sw": null,
+        "position": {
+          "surface": 2.5,
+          "mitoyennete": "exterieur",
+          "type_pose": "nu_interieur",
+          "inclinaison": 90,
+          "orientation": 180,
+          "presence_soubassement": null,
+          "paroi_id": null,
+          "local_non_chauffe_id": null,
+          "double_fenetre_id": null
+        },
+        "vitrage": {
+          "type": "double_vitrage_fe",
+          "nature_lame": "argon",
+          "epaisseur_lame": 16
+        },
+        "survitrage": null,
+        "menuiserie": {
+          "materiau": null,
+          "largeur_dormant": 50,
+          "presence_joint": true,
+          "presence_retour_isolation": true,
+          "presence_rupteur_pont_thermique": true
+        },
+        "masques": [],
+        "data": {
+          "sdep": 2.5,
+          "ug": 1.1,
+          "uw": 1.4,
+          "deltar": 0.19,
+          "b": 1,
+          "u": 1.3,
+          "dp": 3.25,
+          "performance": "tres_bonne",
+          "fe": 1,
+          "sw": 0.4,
+          "sse": 12
+        }
+      },
+      {
+        "id": "019a91d0-24e6-739a-a923-e62cfddc6d87",
+        "description": "Fenêtre 2",
+        "type": "fenetre_battante",
+        "presence_protection_solaire": false,
+        "type_fermeture": "volets_roulants_pvc_bois_epaisseur_lte_12_mm",
+        "annee_installation": null,
+        "ug": null,
+        "uw": null,
+        "ujn": null,
+        "sw": null,
+        "position": {
+          "surface": 2.5,
+          "mitoyennete": "exterieur",
+          "type_pose": "nu_interieur",
+          "inclinaison": 90,
+          "orientation": 180,
+          "presence_soubassement": null,
+          "paroi_id": null,
+          "local_non_chauffe_id": null,
+          "double_fenetre_id": null
+        },
+        "vitrage": {
+          "type": "double_vitrage_fe",
+          "nature_lame": "argon",
+          "epaisseur_lame": 16
+        },
+        "survitrage": null,
+        "menuiserie": {
+          "materiau": null,
+          "largeur_dormant": 50,
+          "presence_joint": true,
+          "presence_retour_isolation": true,
+          "presence_rupteur_pont_thermique": true
+        },
+        "masques": [],
+        "data": {
+          "sdep": 2.5,
+          "ug": 1.1,
+          "uw": 1.4,
+          "deltar": 0.19,
+          "b": 1,
+          "u": 1.3,
+          "dp": 3.25,
+          "performance": "tres_bonne",
+          "fe": 1,
+          "sw": 0.4,
+          "sse": 12
+        }
+      },
+      {
+        "id": "019a91d0-24e6-739a-a923-e62cfeb20728",
+        "description": "Fenêtre 3",
+        "type": "fenetre_battante",
+        "presence_protection_solaire": false,
+        "type_fermeture": "volets_roulants_pvc_bois_epaisseur_lte_12_mm",
+        "annee_installation": null,
+        "ug": null,
+        "uw": null,
+        "ujn": null,
+        "sw": null,
+        "position": {
+          "surface": 2.5,
+          "mitoyennete": "exterieur",
+          "type_pose": "nu_interieur",
+          "inclinaison": 90,
+          "orientation": 180,
+          "presence_soubassement": null,
+          "paroi_id": null,
+          "local_non_chauffe_id": null,
+          "double_fenetre_id": null
+        },
+        "vitrage": {
+          "type": "double_vitrage_fe",
+          "nature_lame": "argon",
+          "epaisseur_lame": 16
+        },
+        "survitrage": null,
+        "menuiserie": {
+          "materiau": null,
+          "largeur_dormant": 50,
+          "presence_joint": true,
+          "presence_retour_isolation": true,
+          "presence_rupteur_pont_thermique": true
+        },
+        "masques": [],
+        "data": {
+          "sdep": 2.5,
+          "ug": 1.1,
+          "uw": 1.4,
+          "deltar": 0.19,
+          "b": 1,
+          "u": 1.3,
+          "dp": 3.25,
+          "performance": "tres_bonne",
+          "fe": 1,
+          "sw": 0.4,
+          "sse": 12
+        }
+      },
+      {
+        "id": "019a91d0-24e6-739a-a923-e62cff9cec27",
+        "description": "Fenêtre 4",
+        "type": "fenetre_battante",
+        "presence_protection_solaire": false,
+        "type_fermeture": "volets_roulants_pvc_bois_epaisseur_lte_12_mm",
+        "annee_installation": null,
+        "ug": null,
+        "uw": null,
+        "ujn": null,
+        "sw": null,
+        "position": {
+          "surface": 2.5,
+          "mitoyennete": "exterieur",
+          "type_pose": "nu_interieur",
+          "inclinaison": 90,
+          "orientation": 180,
+          "presence_soubassement": null,
+          "paroi_id": null,
+          "local_non_chauffe_id": null,
+          "double_fenetre_id": null
+        },
+        "vitrage": {
+          "type": "double_vitrage_fe",
+          "nature_lame": "argon",
+          "epaisseur_lame": 16
+        },
+        "survitrage": null,
+        "menuiserie": {
+          "materiau": null,
+          "largeur_dormant": 50,
+          "presence_joint": true,
+          "presence_retour_isolation": true,
+          "presence_rupteur_pont_thermique": true
+        },
+        "masques": [],
+        "data": {
+          "sdep": 2.5,
+          "ug": 1.1,
+          "uw": 1.4,
+          "deltar": 0.19,
+          "b": 1,
+          "u": 1.3,
+          "dp": 3.25,
+          "performance": "tres_bonne",
+          "fe": 1,
+          "sw": 0.4,
+          "sse": 12
+        }
+      }
+    ],
+    "murs": [
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d0394bdf1",
+        "description": "Mur 1",
+        "type_structure": null,
+        "epaisseur_structure": null,
+        "type_doublage": null,
+        "presence_enduit_isolant": false,
+        "paroi_ancienne": false,
+        "inertie": "lourde",
+        "annee_construction": null,
+        "annee_renovation": null,
+        "u0": null,
+        "u": null,
+        "position": {
+          "surface": 35,
+          "mitoyennete": "exterieur",
+          "orientation": null,
+          "local_non_chauffe_id": null
+        },
+        "isolation": {
+          "etat": "isole",
+          "type": "ite",
+          "annee_installation": null,
+          "epaisseur": 150,
+          "resistance_thermique": 5.7
+        },
+        "data": {
+          "sdep": 35,
+          "u0": 2.5,
+          "u": 0.16,
+          "b": 1,
+          "dp": 5.6,
+          "performance": "tres_bonne"
+        }
+      },
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d048c8fc8",
+        "description": "Mur 2",
+        "type_structure": null,
+        "epaisseur_structure": null,
+        "type_doublage": null,
+        "presence_enduit_isolant": false,
+        "paroi_ancienne": false,
+        "inertie": "lourde",
+        "annee_construction": null,
+        "annee_renovation": null,
+        "u0": null,
+        "u": null,
+        "position": {
+          "surface": 35,
+          "mitoyennete": "exterieur",
+          "orientation": null,
+          "local_non_chauffe_id": null
+        },
+        "isolation": {
+          "etat": "isole",
+          "type": "ite",
+          "annee_installation": null,
+          "epaisseur": 150,
+          "resistance_thermique": 5.7
+        },
+        "data": {
+          "sdep": 35,
+          "u0": 2.5,
+          "u": 0.16,
+          "b": 1,
+          "dp": 5.6,
+          "performance": "tres_bonne"
+        }
+      },
+      {
+        "id": "019a91d0-24e6-739a-a923-e62cfef4bad3",
+        "description": "Mur 3",
+        "type_structure": null,
+        "epaisseur_structure": null,
+        "type_doublage": null,
+        "presence_enduit_isolant": false,
+        "paroi_ancienne": false,
+        "inertie": "lourde",
+        "annee_construction": null,
+        "annee_renovation": null,
+        "u0": null,
+        "u": null,
+        "position": {
+          "surface": 35,
+          "mitoyennete": "exterieur",
+          "orientation": null,
+          "local_non_chauffe_id": null
+        },
+        "isolation": {
+          "etat": "isole",
+          "type": "ite",
+          "annee_installation": null,
+          "epaisseur": 150,
+          "resistance_thermique": 5.7
+        },
+        "data": {
+          "sdep": 35,
+          "u0": 2.5,
+          "u": 0.16,
+          "b": 1,
+          "dp": 5.6,
+          "performance": "tres_bonne"
+        }
+      },
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d01480858",
+        "description": "Mur 4",
+        "type_structure": null,
+        "epaisseur_structure": null,
+        "type_doublage": null,
+        "presence_enduit_isolant": false,
+        "paroi_ancienne": false,
+        "inertie": "lourde",
+        "annee_construction": null,
+        "annee_renovation": null,
+        "u0": null,
+        "u": null,
+        "position": {
+          "surface": 35,
+          "mitoyennete": "exterieur",
+          "orientation": null,
+          "local_non_chauffe_id": null
+        },
+        "isolation": {
+          "etat": "isole",
+          "type": "ite",
+          "annee_installation": null,
+          "epaisseur": 150,
+          "resistance_thermique": 5.7
+        },
+        "data": {
+          "sdep": 35,
+          "u0": 2.5,
+          "u": 0.16,
+          "b": 1,
+          "dp": 5.6,
+          "performance": "tres_bonne"
+        }
+      }
+    ],
+    "planchers_bas": [
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d08a3f3ee",
+        "description": "Plancher 1",
+        "type_structure": "dalle_beton",
+        "inertie": "lourde",
+        "annee_construction": null,
+        "annee_renovation": null,
+        "u0": null,
+        "u": null,
+        "position": {
+          "surface": 110,
+          "mitoyennete": "vide_sanitaire",
+          "surface_ue": 110,
+          "perimetre_ue": 40,
+          "local_non_chauffe_id": null
+        },
+        "isolation": {
+          "etat": "isole",
+          "type": "ite",
+          "annee_installation": null,
+          "epaisseur": 120,
+          "resistance_thermique": 5
+        },
+        "data": {
+          "sdep": 110,
+          "u0": 2,
+          "u": 0.18,
+          "b": 1,
+          "dp": 19.8,
+          "performance": "tres_bonne"
+        }
+      }
+    ],
+    "planchers_hauts": [
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d02ce72f9",
+        "description": "Plafond 1",
+        "configuration": "rampants",
+        "type_structure": "combles_amenages_sous_rampant",
+        "inertie": "legere",
+        "annee_construction": null,
+        "annee_renovation": null,
+        "u0": null,
+        "u": null,
+        "position": {
+          "surface": 110,
+          "mitoyennete": "exterieur",
+          "orientation": null,
+          "local_non_chauffe_id": null
+        },
+        "isolation": {
+          "etat": "isole",
+          "type": "ite",
+          "annee_installation": null,
+          "epaisseur": 250,
+          "resistance_thermique": 7.5
+        },
+        "data": {
+          "sdep": 110,
+          "u0": 2.5,
+          "u": 0.13,
+          "b": 1,
+          "dp": 14.3,
+          "performance": "tres_bonne"
+        }
+      }
+    ],
+    "portes": [
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d10f66502",
+        "description": "Porte 1",
+        "isolation": "isole",
+        "materiau": "pvc",
+        "annee_installation": null,
+        "u": null,
+        "position": {
+          "type_pose": "nu_interieur",
+          "surface": 2.75,
+          "mitoyennete": "exterieur",
+          "orientation": null,
+          "presence_sas": false,
+          "paroi_id": null,
+          "local_non_chauffe_id": null
+        },
+        "menuiserie": {
+          "largeur_dormant": 50,
+          "presence_joint": true,
+          "presence_retour_isolation": true
+        },
+        "vitrage": {
+          "surface": 1.2375,
+          "type": "double_vitrage"
+        },
+        "data": {
+          "sdep": 2.75,
+          "u": 1.5,
+          "b": 1,
+          "dp": 4.13,
+          "performance": "tres_bonne"
+        }
+      },
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d1185a9d4",
+        "description": "Porte 2",
+        "isolation": "isole",
+        "materiau": "pvc",
+        "annee_installation": null,
+        "u": null,
+        "position": {
+          "type_pose": "nu_interieur",
+          "surface": 2.75,
+          "mitoyennete": "exterieur",
+          "orientation": null,
+          "presence_sas": false,
+          "paroi_id": null,
+          "local_non_chauffe_id": null
+        },
+        "menuiserie": {
+          "largeur_dormant": 50,
+          "presence_joint": true,
+          "presence_retour_isolation": true
+        },
+        "vitrage": {
+          "surface": 1.2375,
+          "type": "double_vitrage"
+        },
+        "data": {
+          "sdep": 2.75,
+          "u": 1.5,
+          "b": 1,
+          "dp": 4.13,
+          "performance": "tres_bonne"
+        }
+      }
+    ],
+    "ponts_thermiques": [
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d09516874",
+        "description": "Plancher 1-Mur 1",
+        "longueur": 2,
+        "kpt": null,
+        "liaison": {
+          "type": "plancher_bas_mur",
+          "pont_thermique_partiel": false,
+          "mur_id": "019a91d0-24e6-739a-a923-e62d0394bdf1",
+          "plancher_id": "019a91d0-24e6-739a-a923-e62d08a3f3ee",
+          "ouverture_id": null
+        },
+        "data": {
+          "k": 0.64,
+          "pt": 1.28
+        }
+      },
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d09f73123",
+        "description": "Plancher 1-Mur 2",
+        "longueur": 2.3,
+        "kpt": null,
+        "liaison": {
+          "type": "plancher_bas_mur",
+          "pont_thermique_partiel": false,
+          "mur_id": "019a91d0-24e6-739a-a923-e62d048c8fc8",
+          "plancher_id": "019a91d0-24e6-739a-a923-e62d08a3f3ee",
+          "ouverture_id": null
+        },
+        "data": {
+          "k": 0.64,
+          "pt": 1.47
+        }
+      },
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d0af724f8",
+        "description": "Plancher 1-Mur 3",
+        "longueur": 2.7,
+        "kpt": null,
+        "liaison": {
+          "type": "plancher_bas_mur",
+          "pont_thermique_partiel": false,
+          "mur_id": "019a91d0-24e6-739a-a923-e62cfef4bad3",
+          "plancher_id": "019a91d0-24e6-739a-a923-e62d08a3f3ee",
+          "ouverture_id": null
+        },
+        "data": {
+          "k": 0.64,
+          "pt": 1.73
+        }
+      },
+      {
+        "id": "36cb5773-3af0-4c47-b35a-c3e7473d4cb3",
+        "description": "Plancher 1-Mur 4",
+        "longueur": 2.7,
+        "kpt": null,
+        "liaison": {
+          "type": "plancher_bas_mur",
+          "pont_thermique_partiel": false,
+          "mur_id": "019a91d0-24e6-739a-a923-e62d01480858",
+          "plancher_id": "019a91d0-24e6-739a-a923-e62d08a3f3ee",
+          "ouverture_id": null
+        },
+        "data": {
+          "k": 0.64,
+          "pt": 1.73
+        }
+      },
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d0e242b1d",
+        "description": "Fenêtre 1-Mur 1",
+        "longueur": 6.6,
+        "kpt": null,
+        "liaison": {
+          "type": "menuiserie_mur",
+          "pont_thermique_partiel": false,
+          "mur_id": "019a91d0-24e6-739a-a923-e62d0394bdf1",
+          "plancher_id": null,
+          "ouverture_id": "019a91d0-24e6-739a-a923-e62cfcdb57b6"
+        },
+        "data": {
+          "k": 0.25,
+          "pt": 1.65
+        }
+      },
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d0edf4662",
+        "description": "Fenêtre 2-Mur 2",
+        "longueur": 6,
+        "kpt": null,
+        "liaison": {
+          "type": "menuiserie_mur",
+          "pont_thermique_partiel": false,
+          "mur_id": "019a91d0-24e6-739a-a923-e62d048c8fc8",
+          "plancher_id": null,
+          "ouverture_id": "019a91d0-24e6-739a-a923-e62cfddc6d87"
+        },
+        "data": {
+          "k": 0.25,
+          "pt": 1.5
+        }
+      },
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d10e533a2",
+        "description": "Porte 1-Mur 1",
+        "longueur": 4.7,
+        "kpt": null,
+        "liaison": {
+          "type": "menuiserie_mur",
+          "pont_thermique_partiel": false,
+          "mur_id": "019a91d0-24e6-739a-a923-e62d0394bdf1",
+          "plancher_id": null,
+          "ouverture_id": "019a91d0-24e6-739a-a923-e62d10f66502"
+        },
+        "data": {
+          "k": 0.25,
+          "pt": 1.18
+        }
+      },
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d1185a9d4",
+        "description": "Porte 2-Mur 2",
+        "longueur": 4.2,
+        "kpt": null,
+        "liaison": {
+          "type": "menuiserie_mur",
+          "pont_thermique_partiel": false,
+          "mur_id": "019a91d0-24e6-739a-a923-e62d048c8fc8",
+          "plancher_id": null,
+          "ouverture_id": "019a91d0-24e6-739a-a923-e62d1185a9d4"
+        },
+        "data": {
+          "k": 0.25,
+          "pt": 1.05
+        }
+      }
+    ],
+    "data": {
+      "inertie": "lourde",
+      "permeabilite": {
+        "hvent": 22.44,
+        "hperm": 18.48,
+        "q4pa_conv": 1.9,
+        "qvarep_conv": 0.6,
+        "qvasouf_conv": 0.6,
+        "smea_conv": 0,
+        "presence_joints_menuiserie": true
+      },
+      "deperditions": {
+        "gv": 130.27,
+        "dp": 77.76,
+        "dp_murs": 22.4,
+        "dp_planchers_bas": 19.8,
+        "dp_planchers_hauts": 14.3,
+        "dp_baies": 13,
+        "dp_portes": 8.26,
+        "pt": 11.59,
+        "dr": 40.92,
+        "ubat": 0.24,
+        "performance": "tres_bonne"
+      },
+      "confort_ete": {
+        "performance": "bon",
+        "inertie_lourde": true,
+        "isolation_plancher_haut": true,
+        "presence_protection_solaire": true,
+        "logement_traversant": true,
+        "presence_brasseur_air": false
+      },
+      "apports": {
+        "f": 0.48,
+        "apport": 4999727.13,
+        "apport_interne": 2394207.13,
+        "apport_solaire": 2605520,
+        "apport_fr": 1096776.71,
+        "apport_interne_fr": 326216.71,
+        "apport_solaire_fr": 770560
+      }
+    }
+  },
+  "chauffage": {
+    "emetteurs": [
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d14128785",
+        "description": "Radiateur bitube",
+        "type": "radiateur_bitube",
+        "temperature_distribution": "haute",
+        "presence_robinet_thermostatique": true,
+        "annee_installation": null
+      }
+    ],
+    "generateurs": [
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d14128785",
+        "description": "Pompe à chaleur",
+        "type": "pac_air_eau",
+        "energie": "electricite",
+        "bienergie": null,
+        "annee_installation": null,
+        "position": {
+          "generateur_collectif": false,
+          "generateur_multi_batiment": false,
+          "position_volume_chauffe": true,
+          "position_chaudiere": null,
+          "generateur_mixte_id": null,
+          "reseau_chaleur_id": null
+        },
+        "signaletique": {
+          "pn": null,
+          "label": null,
+          "scop": 6,
+          "mode_combustion": null,
+          "presence_ventouse": null,
+          "presence_regulation_combustion": null,
+          "pveilleuse": null,
+          "qp0": null,
+          "rpn": null,
+          "rpint": null,
+          "tfonc30": null,
+          "tfonc100": null
+        },
+        "data": {
+          "rdim": 1,
+          "pn": 4.65,
+          "pdim": 4.65,
+          "pch": 4.65,
+          "rg": 6,
+          "scop": 6,
+          "rpn": null,
+          "rpint": null,
+          "qp0": null,
+          "pveilleuse": null,
+          "tfonc30": null,
+          "tfonc100": null,
+          "pertes_generation": 0,
+          "pertes_generation_recuperables": 0,
+          "consommations": [
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 134.97,
+              "cep": 256.44,
+              "eges": 10.66
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 138.99,
+              "cep": 264.08,
+              "eges": 10.98
+            },
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "chauffage",
+              "cef": 520.05,
+              "cep": 988.09,
+              "eges": 41.08
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "chauffage",
+              "cef": 533.18,
+              "cep": 1013.04,
+              "eges": 42.12
+            }
+          ]
+        }
+      }
+    ],
+    "installations": [
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d13f11a57",
+        "description": "Installation principale",
+        "surface": 110,
+        "comptage_individuel": true,
+        "regulation_centrale": {
+          "presence_regulation": true,
+          "minimum_temperature": true,
+          "detection_presence": true
+        },
+        "regulation_terminale": {
+          "presence_regulation": true,
+          "minimum_temperature": true,
+          "detection_presence": true
+        },
+        "solaire_thermique": null,
+        "data": {
+          "fch": 0,
+          "rdim": 1,
+          "i0": 0.8,
+          "int": 0.84,
+          "ich": 0.18,
+          "re": 0.95,
+          "rd": 1,
+          "rg": 6,
+          "rr": 0.95,
+          "consommations": [
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 134.97,
+              "cep": 256.44,
+              "eges": 10.66
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 138.99,
+              "cep": 264.08,
+              "eges": 10.98
+            },
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "chauffage",
+              "cef": 520.05,
+              "cep": 988.09,
+              "eges": 41.08
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "chauffage",
+              "cef": 533.18,
+              "cep": 1013.04,
+              "eges": 42.12
+            }
+          ]
+        }
+      }
+    ],
+    "systemes": [
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d14128785",
+        "description": "Pompe à chaleur",
+        "generateur_id": "019a91d0-24e6-739a-a923-e62d14128785",
+        "installation_id": "019a91d0-24e6-739a-a923-e62d13f11a57",
+        "type": "chauffage_central",
+        "cascade": null,
+        "reseau": {
+          "type_distribution": "hydraulique",
+          "presence_fluide_frigorigene": true,
+          "presence_circulateur_externe": false,
+          "niveaux_desservis": 2,
+          "isolation": null
+        },
+        "emetteurs": [
+          "019a91d0-24e6-739a-a923-e62d14128785"
+        ],
+        "data": {
+          "configuration": "base",
+          "rdim": 1,
+          "paux": 0,
+          "i0": 0.8,
+          "int": 0.84,
+          "ich": 0.18,
+          "re": 0.95,
+          "rd": 1,
+          "rg": 6,
+          "rr": 0.95,
+          "consommations": [
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 134.97,
+              "cep": 256.44,
+              "eges": 10.66
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 138.99,
+              "cep": 264.08,
+              "eges": 10.98
+            },
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "chauffage",
+              "cef": 520.05,
+              "cep": 988.09,
+              "eges": 41.08
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "chauffage",
+              "cef": 533.18,
+              "cep": 1013.04,
+              "eges": 42.12
+            }
+          ]
+        }
+      }
+    ],
+    "data": {
+      "bch": 2889.18,
+      "ich": 0.18,
+      "re": 0.95,
+      "rd": 1,
+      "rg": 6,
+      "rr": 0.95,
+      "pertes_generation": 0,
+      "pertes_generation_recuperables": 0,
+      "consommations": [
+        {
+          "scenario": "conventionnel",
+          "energie": "electricite",
+          "usage": "auxiliaire",
+          "cef": 134.97,
+          "cep": 256.44,
+          "eges": 10.66
+        },
+        {
+          "scenario": "depensier",
+          "energie": "electricite",
+          "usage": "auxiliaire",
+          "cef": 138.99,
+          "cep": 264.08,
+          "eges": 10.98
+        },
+        {
+          "scenario": "conventionnel",
+          "energie": "electricite",
+          "usage": "chauffage",
+          "cef": 520.05,
+          "cep": 988.09,
+          "eges": 41.08
+        },
+        {
+          "scenario": "depensier",
+          "energie": "electricite",
+          "usage": "chauffage",
+          "cef": 533.18,
+          "cep": 1013.04,
+          "eges": 42.12
+        }
+      ]
+    }
+  },
+  "ecs": {
+    "generateurs": [
+      {
+        "id": "019a91d0-24e7-7b92-bce4-b929ede0f72b",
+        "description": "Chauffe-eau thermodynamique",
+        "type": "cet_air_exterieur",
+        "energie": "electricite",
+        "annee_installation": null,
+        "position": {
+          "generateur_collectif": false,
+          "generateur_multi_batiment": false,
+          "position_volume_chauffe": true,
+          "position_chauffe_eau": null,
+          "generateur_mixte_id": null,
+          "reseau_chaleur_id": null
+        },
+        "signaletique": {
+          "volume_stockage": 200,
+          "pn": null,
+          "label": null,
+          "cop": 5,
+          "mode_combustion": null,
+          "presence_ventouse": null,
+          "pveilleuse": null,
+          "qp0": null,
+          "rpn": null
+        },
+        "data": {
+          "rdim": 1,
+          "pn": 1.86,
+          "pdim": 1.86,
+          "pecs": 1.86,
+          "rg": 1,
+          "cop": 5,
+          "rpn": null,
+          "qp0": null,
+          "pveilleuse": null,
+          "pertes_generation": 0,
+          "pertes_generation_recuperables": 0,
+          "pertes_stockage": 741060,
+          "pertes_stockage_recuperables": 182686.52,
+          "consommations": [
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "ecs",
+              "cef": 270.04,
+              "cep": 513.08,
+              "eges": 21.33
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "ecs",
+              "cef": 380.95,
+              "cep": 723.81,
+              "eges": 30.1
+            }
+          ]
+        }
+      }
+    ],
+    "installations": [
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d14b3b238",
+        "description": "Installation principale",
+        "surface": 110,
+        "solaire_thermique": null,
+        "data": {
+          "fecs": 0,
+          "rdim": 1,
+          "iecs": 0.23,
+          "rd": 0.87,
+          "rs": 1,
+          "rg": 1,
+          "rgs": 5,
+          "consommations": [
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "ecs",
+              "cef": 270.04,
+              "cep": 513.08,
+              "eges": 21.33
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "ecs",
+              "cef": 380.95,
+              "cep": 723.81,
+              "eges": 30.1
+            }
+          ]
+        }
+      }
+    ],
+    "systemes": [
+      {
+        "id": "019a91d0-24e7-7b92-bce4-b929ede0f72b",
+        "description": "Système principal",
+        "generateur_id": "019a91d0-24e7-7b92-bce4-b929ede0f72b",
+        "installation_id": "019a91d0-24e6-739a-a923-e62d14b3b238",
+        "reseau": {
+          "alimentation_contigue": false,
+          "niveaux_desservis": 2,
+          "isolation": null,
+          "bouclage": "non_boucle"
+        },
+        "stockage": {
+          "volume": 0,
+          "position_volume_chauffe": true
+        },
+        "data": {
+          "rdim": 1,
+          "paux": 0,
+          "iecs": 0.23,
+          "rd": 0.87,
+          "rs": 1,
+          "rg": 1,
+          "rgs": 5,
+          "pertes_stockage": 0,
+          "pertes_stockage_recuperables": 0,
+          "pertes_distribution": 117409,
+          "pertes_distribution_recuperables": 6.43,
+          "consommations": [
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "ecs",
+              "cef": 270.04,
+              "cep": 513.08,
+              "eges": 21.33
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "ecs",
+              "cef": 380.95,
+              "cep": 723.81,
+              "eges": 30.1
+            }
+          ]
+        }
+      }
+    ],
+    "data": {
+      "nmax": 2.75,
+      "nadeq": 2.05,
+      "becs": 1174.09,
+      "iecs": 0.23,
+      "rd": 0.87,
+      "rs": 1,
+      "rg": 1,
+      "rgs": 5,
+      "pertes_generation": 0,
+      "pertes_generation_recuperables": 0,
+      "pertes_stockage": 741060,
+      "pertes_stockage_recuperables": 182686.52,
+      "pertes_distribution": 117409,
+      "pertes_distribution_recuperables": 6.43,
+      "consommations": [
+        {
+          "scenario": "conventionnel",
+          "energie": "electricite",
+          "usage": "auxiliaire",
+          "cef": 0,
+          "cep": 0,
+          "eges": 0
+        },
+        {
+          "scenario": "depensier",
+          "energie": "electricite",
+          "usage": "auxiliaire",
+          "cef": 0,
+          "cep": 0,
+          "eges": 0
+        },
+        {
+          "scenario": "conventionnel",
+          "energie": "electricite",
+          "usage": "ecs",
+          "cef": 270.04,
+          "cep": 513.08,
+          "eges": 21.33
+        },
+        {
+          "scenario": "depensier",
+          "energie": "electricite",
+          "usage": "ecs",
+          "cef": 380.95,
+          "cep": 723.81,
+          "eges": 30.1
+        }
+      ]
+    }
+  },
+  "refroidissement": {
+    "generateurs": [
+      {
+        "id": "019a91d0-24e7-7b92-bce4-b929ede0f72b",
+        "description": "Climatiseur monobloc",
+        "type": "autre",
+        "energie": "electricite",
+        "annee_installation": null,
+        "seer": null,
+        "reseau_froid_id": null,
+        "data": {
+          "rdim": 0.33,
+          "eer": 3.6,
+          "consommations": [
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "refroidissement",
+              "cef": 122.54,
+              "cep": 232.83,
+              "eges": 7.84
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "refroidissement",
+              "cef": 310.1,
+              "cep": 589.19,
+              "eges": 19.85
+            }
+          ]
+        }
+      },
+      {
+        "id": "4d4ad94f-fc2f-4a27-ab1a-09d355eeee9c",
+        "description": "Climatiseur monobloc",
+        "type": "autre",
+        "energie": "electricite",
+        "annee_installation": null,
+        "seer": null,
+        "reseau_froid_id": null,
+        "data": {
+          "rdim": 0.33,
+          "eer": 3.6,
+          "consommations": [
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "refroidissement",
+              "cef": 122.54,
+              "cep": 232.83,
+              "eges": 7.84
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "refroidissement",
+              "cef": 310.1,
+              "cep": 589.19,
+              "eges": 19.85
+            }
+          ]
+        }
+      },
+      {
+        "id": "7d02cf54-2785-4575-9097-ca5fa56a7598",
+        "description": "Climatiseur monobloc",
+        "type": "autre",
+        "energie": "electricite",
+        "annee_installation": null,
+        "seer": null,
+        "reseau_froid_id": null,
+        "data": {
+          "rdim": 0.33,
+          "eer": 3.6,
+          "consommations": [
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "refroidissement",
+              "cef": 122.54,
+              "cep": 232.83,
+              "eges": 7.84
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "refroidissement",
+              "cef": 310.1,
+              "cep": 589.19,
+              "eges": 19.85
+            }
+          ]
+        }
+      }
+    ],
+    "installations": [
+      {
+        "id": "019a91d0-24e6-739a-a923-e62d14b3b238",
+        "description": "Installation principale",
+        "surface": 110,
+        "data": {
+          "rdim": 1,
+          "consommations": [
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "refroidissement",
+              "cef": 367.62,
+              "cep": 698.49,
+              "eges": 23.52
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "refroidissement",
+              "cef": 930.3000000000001,
+              "cep": 1767.5700000000002,
+              "eges": 59.550000000000004
+            }
+          ]
+        }
+      }
+    ],
+    "systemes": [
+      {
+        "id": "019a91d0-24e7-7b92-bce4-b929ede0f72b",
+        "description": "Climatiseur monobloc",
+        "installation_id": "019a91d0-24e6-739a-a923-e62d14b3b238",
+        "generateur_id": "019a91d0-24e7-7b92-bce4-b929ede0f72b",
+        "data": {
+          "rdim": 0.33,
+          "consommations": [
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "refroidissement",
+              "cef": 122.54,
+              "cep": 232.83,
+              "eges": 7.84
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "refroidissement",
+              "cef": 310.1,
+              "cep": 589.19,
+              "eges": 19.85
+            }
+          ]
+        }
+      },
+      {
+        "id": "4d4ad94f-fc2f-4a27-ab1a-09d355eeee9c",
+        "description": "Climatiseur monobloc",
+        "installation_id": "019a91d0-24e6-739a-a923-e62d14b3b238",
+        "generateur_id": "4d4ad94f-fc2f-4a27-ab1a-09d355eeee9c",
+        "data": {
+          "rdim": 0.33,
+          "consommations": [
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "refroidissement",
+              "cef": 122.54,
+              "cep": 232.83,
+              "eges": 7.84
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "refroidissement",
+              "cef": 310.1,
+              "cep": 589.19,
+              "eges": 19.85
+            }
+          ]
+        }
+      },
+      {
+        "id": "7d02cf54-2785-4575-9097-ca5fa56a7598",
+        "description": "Climatiseur monobloc",
+        "installation_id": "019a91d0-24e6-739a-a923-e62d14b3b238",
+        "generateur_id": "7d02cf54-2785-4575-9097-ca5fa56a7598",
+        "data": {
+          "rdim": 0.33,
+          "consommations": [
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 0,
+              "cep": 0,
+              "eges": 0
+            },
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "refroidissement",
+              "cef": 122.54,
+              "cep": 232.83,
+              "eges": 7.84
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "refroidissement",
+              "cef": 310.1,
+              "cep": 589.19,
+              "eges": 19.85
+            }
+          ]
+        }
+      }
+    ],
+    "data": {
+      "bfr": 1485.39,
+      "consommations": [
+        {
+          "scenario": "conventionnel",
+          "energie": "electricite",
+          "usage": "auxiliaire",
+          "cef": 0,
+          "cep": 0,
+          "eges": 0
+        },
+        {
+          "scenario": "depensier",
+          "energie": "electricite",
+          "usage": "auxiliaire",
+          "cef": 0,
+          "cep": 0,
+          "eges": 0
+        },
+        {
+          "scenario": "conventionnel",
+          "energie": "electricite",
+          "usage": "refroidissement",
+          "cef": 367.62,
+          "cep": 698.49,
+          "eges": 23.52
+        },
+        {
+          "scenario": "depensier",
+          "energie": "electricite",
+          "usage": "refroidissement",
+          "cef": 930.3000000000001,
+          "cep": 1767.5700000000002,
+          "eges": 59.550000000000004
+        }
+      ]
+    }
+  },
+  "ventilation": {
+    "generateurs": [
+      {
+        "id": "019a91d0-24e7-7b92-bce4-b929ee7aaa19",
+        "description": "VMC Double flux",
+        "type": "vmc_double_flux",
+        "type_vmc": "hygroreglable_type_b",
+        "generateur_collectif": false,
+        "presence_echangeur_thermique": true,
+        "annee_installation": null,
+        "data": {
+          "rdim": 1,
+          "ratio_utilisation": 1,
+          "pvent_moy": 80,
+          "consommations": [
+            {
+              "scenario": "conventionnel",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 700.8,
+              "cep": 1331.52,
+              "eges": 55.36
+            },
+            {
+              "scenario": "depensier",
+              "energie": "electricite",
+              "usage": "auxiliaire",
+              "cef": 700.8,
+              "cep": 1331.52,
+              "eges": 55.36
+            }
+          ]
+        }
+      }
+    ],
+    "installations": [
+      {
+        "id": "019a91d0-24e7-7b92-bce4-b929ee7aaa19",
+        "description": "Installation principale",
+        "surface": 110,
+        "type": "ventilation_mecanique",
+        "generateur_id": "019a91d0-24e7-7b92-bce4-b929ee7aaa19",
+        "data": {
+          "rdim": 1,
+          "qvarep_conv": 0.6,
+          "qvasouf_conv": 0.6,
+          "smea_conv": 0
+        }
+      }
+    ],
+    "data": {
+      "consommations": [
+        {
+          "scenario": "conventionnel",
+          "energie": "electricite",
+          "usage": "auxiliaire",
+          "cef": 700.8,
+          "cep": 1331.52,
+          "eges": 55.36
+        },
+        {
+          "scenario": "depensier",
+          "energie": "electricite",
+          "usage": "auxiliaire",
+          "cef": 700.8,
+          "cep": 1331.52,
+          "eges": 55.36
+        }
+      ]
+    }
+  },
+  "production": {
+    "panneaux_photovoltaiques": [],
+    "data": {
+      "ppv": 0
+    }
+  },
+  "logements": [],
+  "data": {
+    "zone_climatique": "H2d",
+    "effet_joule": true,
+    "parois_anciennes_lourdes": false,
+    "surface_reference": 110,
+    "volume_reference": 275,
+    "bilan": {
+      "cef": 20.1,
+      "cep": 38.18,
+      "eges": 1.52,
+      "etiquette_energie": "A",
+      "etiquette_climat": "A"
+    },
+    "consommations": [
+      {
+        "scenario": "conventionnel",
+        "energie": "electricite",
+        "usage": "auxiliaire",
+        "cef": 835.77,
+        "cep": 1587.96,
+        "eges": 66.02
+      },
+      {
+        "scenario": "depensier",
+        "energie": "electricite",
+        "usage": "auxiliaire",
+        "cef": 839.79,
+        "cep": 1595.6,
+        "eges": 66.34
+      },
+      {
+        "scenario": "conventionnel",
+        "energie": "electricite",
+        "usage": "chauffage",
+        "cef": 520.05,
+        "cep": 988.09,
+        "eges": 41.08
+      },
+      {
+        "scenario": "depensier",
+        "energie": "electricite",
+        "usage": "chauffage",
+        "cef": 533.18,
+        "cep": 1013.04,
+        "eges": 42.12
+      },
+      {
+        "scenario": "conventionnel",
+        "energie": "electricite",
+        "usage": "ecs",
+        "cef": 270.04,
+        "cep": 513.08,
+        "eges": 21.33
+      },
+      {
+        "scenario": "depensier",
+        "energie": "electricite",
+        "usage": "ecs",
+        "cef": 380.95,
+        "cep": 723.81,
+        "eges": 30.1
+      },
+      {
+        "scenario": "conventionnel",
+        "energie": "electricite",
+        "usage": "refroidissement",
+        "cef": 367.62,
+        "cep": 698.49,
+        "eges": 23.52
+      },
+      {
+        "scenario": "depensier",
+        "energie": "electricite",
+        "usage": "refroidissement",
+        "cef": 930.3000000000001,
+        "cep": 1767.5700000000002,
+        "eges": 59.550000000000004
+      },
+      {
+        "scenario": "conventionnel",
+        "energie": "electricite",
+        "usage": "eclairage",
+        "cef": 217.05,
+        "cep": 412.4,
+        "eges": 14.98
+      },
+      {
+        "scenario": "depensier",
+        "energie": "electricite",
+        "usage": "eclairage",
+        "cef": 217.05,
+        "cep": 412.4,
+        "eges": 14.98
+      }
+    ]
+  }
+}

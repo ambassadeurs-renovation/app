@@ -1,46 +1,87 @@
 ---
-import { useFixtures } from "../../fixtures/fixtures";
-import { $audit } from "../../stores/user";
-import { gestes } from "../../data/gestes";
-import {
-    Container,
-    Layout,
-    Main,
-    Section,
-    Title,
-} from "../../components/Layout";
-import { Gestes as Collection } from "../../components/Collection";
-import Content from "../../contents/tutoriels/mes-gestes.md";
+export const prerender = false;
 
-useFixtures();
+import Layout from "@layout/Layout.astro";
+import { AppBar, TitleSection } from "@component/Layout";
+import { Gestes } from "@component/Geste";
+import { getDiagnostic } from "../../stores/user";
 
-const audit = $audit.get();
+const diagnostic = getDiagnostic();
 
-if (null === audit) {
-    return Astro.redirect("/mon-audit");
+if (null === diagnostic) {
+    return Astro.redirect("/mon-logement/recherche");
 }
 ---
 
-<Layout>
-    <Container size="md">
-        <Main>
-            <Section>
-                <Title>
-                    🚀 Améliorer la performance énergétique d'un logement
+<Layout title="🎯 Mes gestes">
+    <AppBar class="block md:hidden" />
 
-                    <div slot="description" class="markdown-body">
-                        <Content />
-                    </div>
-                </Title>
+    <div class="container">
+        <main>
+            <section class="card gap">
+                <TitleSection>Mes gestes</TitleSection>
 
-                <div class="grid gap-6">
-                    <Collection items={gestes} />
+                <div class="content">
+                    <p>
+                        L'audit énergétique nous permet de pouvoir identifier
+                        les points faibles du bâtiment : des déperditions trop
+                        importantes symptomatiques d'une mauvaise isolation, des
+                        équipements de chauffage peu performants...
+                    </p>
 
-                    <a class="btn btn-primary w-fit" href="/mes-gestes">
-                        Améliorer
-                    </a>
+                    <p>
+                        Cette première analyse nous oriente vers les bons gestes
+                        à mettre en oeuvre pour réussir une rénovation
+                        performante.
+                    </p>
+                    <p><strong>Quels gestes ?</strong></p>
+
+                    <p>
+                        Une rénovation <strong>performante</strong>doit
+                        permettre d'atteindre les objectifs suivants :
+                        <ol>
+                            <li>
+                                🧱 Une bonne isolation des murs et planchers
+                            </li>
+                            <li>🪟 Des fenêtres et portes de bonne qualité</li>
+                            <li>💨 Une ventilation performante</li>
+                            <li>
+                                ☀️ Des systèmes de chauffage et d'eau chaude
+                                sanitaire adaptés
+                            </li>
+                        </ol>
+                    </p>
+
+                    <p>
+                        Le rôte d'un Ambassadeur de la rénovation est de
+                        composer un programme de travaux respectueux de ces
+                        objectifs tout en prenant en considération les
+                        éventuelles contraintes techniques et économiques du
+                        projet.
+                    </p>
+
+                    <p>
+                        Sélectionnez un ou plusieurs gestes parmi ceux qui vous
+                        sont proposés pour évaluer leurs impacts énergétique et
+                        carbone.
+                    </p>
+
+                    <p>A vous de jouer 🚀 !</p>
                 </div>
-            </Section>
-        </Main>
-    </Container>
+
+                <div class="divider"></div>
+
+                <Gestes />
+            </section>
+        </main>
+    </div>
 </Layout>
+
+<style>
+    .content {
+        p,
+        li {
+            margin: 1rem 0;
+        }
+    }
+</style>

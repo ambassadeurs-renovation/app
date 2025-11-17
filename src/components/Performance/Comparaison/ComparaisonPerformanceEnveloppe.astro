@@ -1,0 +1,67 @@
+---
+import type { Diagnostic } from "dpe-audit";
+import {
+    TitleArticle,
+    Chip,
+    Details,
+    ListItemComparaison,
+} from "@component/Layout";
+import {
+    PerformanceConfortEteLabel,
+    PerformanceIsolationLabel,
+} from "../Enveloppe";
+
+interface Props {
+    diagnostic: Diagnostic.IDiagnostic;
+    simulation: Diagnostic.IDiagnostic;
+}
+
+const { diagnostic, simulation }: Props = Astro.props;
+---
+
+<article class="grid gap">
+    <TitleArticle title="Performance de l'enveloppe" />
+
+    <ul class="list">
+        <ListItemComparaison label="Ubat">
+            <PerformanceIsolationLabel
+                slot="origin"
+                value={diagnostic.enveloppe.data?.deperditions.performance}
+                text={diagnostic.enveloppe.data?.deperditions.ubat}
+            />
+            <PerformanceIsolationLabel
+                slot="target"
+                value={simulation.enveloppe.data?.deperditions.performance}
+                text={simulation.enveloppe.data?.deperditions.ubat}
+            />
+        </ListItemComparaison>
+
+        <ListItemComparaison label="Confort d'été">
+            <PerformanceConfortEteLabel
+                slot="origin"
+                value={diagnostic.enveloppe.data?.confort_ete.performance}
+            />
+            <PerformanceConfortEteLabel
+                slot="target"
+                value={simulation.enveloppe.data?.confort_ete.performance}
+            />
+        </ListItemComparaison>
+        <ListItemComparaison label="Déperditions">
+            <Chip
+                slot="origin"
+                value={diagnostic.enveloppe.data?.deperditions.gv}
+                compare={simulation.enveloppe.data?.deperditions.gv}
+            />
+            <Chip
+                slot="target"
+                value={simulation.enveloppe.data?.deperditions.gv}
+                compare={diagnostic.enveloppe.data?.deperditions.gv}
+            />
+        </ListItemComparaison>
+    </ul>
+
+    <Details>
+        <p><b>Ubat : </b>Coefficient de déperditions thermiques du bâtiment</p>
+        <p><b>Déperditions : </b>Déperditions thermiques en W/K</p>
+    </Details>
+</article>

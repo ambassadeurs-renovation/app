@@ -1,0 +1,45 @@
+---
+import { Common } from "dpe-audit";
+import ClasseClimat from "./ClasseClimat.astro";
+import ClasseEnergie from "./ClasseEnergie.astro";
+import { TitleArticle, ListItem } from "@component/Layout";
+
+interface Props {
+    bilan?: Common.Bilan | null;
+    class?: string;
+}
+
+const { bilan = null, class: className = "" }: Props = Astro.props;
+
+const etiquetteEnergie = bilan ? bilan.etiquette_energie : null;
+const etiquetteClimat = bilan ? bilan.etiquette_climat : null;
+const cef = bilan ? Math.round(bilan.cef) : null;
+const cep = bilan ? Math.round(bilan.cep) : null;
+const eges = bilan ? Math.round(bilan.eges) : null;
+---
+
+<div class:list={["card grid gap", className]}>
+    <TitleArticle title="Performance globale" modal="performance-globale" />
+
+    <ul class="list">
+        <ListItem label="Etiquette énergie">
+            <ClasseEnergie value={etiquetteEnergie} class="w-8 h-8" />
+        </ListItem>
+
+        <ListItem label="Consommation finale">
+            <span class="font-medium">{cef ? `${cef} kWh/m²` : "-"}</span>
+        </ListItem>
+
+        <ListItem label="Consommation primaire">
+            <span class="font-medium">{cep ? `${cep} kWh/m²` : "-"}</span>
+        </ListItem>
+
+        <ListItem label="Etiquette climat">
+            <ClasseClimat value={etiquetteClimat} class="w-8 h-8" />
+        </ListItem>
+
+        <ListItem label="Emissions de gaz à effet de serre">
+            <span class="font-medium">{eges ? `${eges} kg/m²` : "-"}</span>
+        </ListItem>
+    </ul>
+</div>

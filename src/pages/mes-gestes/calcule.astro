@@ -1,0 +1,33 @@
+---
+export const prerender = false;
+
+import { POST } from "../../api";
+import { getDiagnostic, setGestes, setSimulation } from "../../stores/user";
+
+const diagnostic = getDiagnostic();
+
+if (null === diagnostic) {
+    return Astro.redirect("/mon-logement/recherche");
+}
+if (Astro.request.method === "POST") {
+    try {
+        const formData = await Astro.request.formData();
+        const gestes = formData.getAll("gestes") as string[];
+        setGestes(gestes);
+
+        const data = await POST();
+
+        if (null === data) {
+            console.error("POST request failed");
+            return Astro.redirect("/mes-gestes/projet");
+        }
+        setSimulation(data);
+        return Astro.redirect("/mes-gestes");
+    } catch (error) {
+        if (error instanceof Error) {
+            console.error(error.message);
+        }
+    }
+}
+return Astro.redirect("/mes-gestes/projet");
+---

@@ -1,0 +1,36 @@
+---
+export const prerender = false;
+
+import Layout from "@layout/Layout.astro";
+import { AppBar } from "@component/Layout";
+import { BatimentHeader, Performance } from "@component/Performance";
+import { getDiagnostic } from "../../stores/user";
+
+const diagnostic = getDiagnostic();
+
+if (null === diagnostic) {
+	return Astro.redirect("/mon-logement/recherche");
+}
+---
+
+<Layout title="Mon logement" bar={false}>
+	<AppBar class="block md:hidden" />
+
+	<BatimentHeader class="md:hidden" batiment={diagnostic.batiment} />
+
+	<div class="container">
+		<main>
+			<Performance
+				batiment={diagnostic.batiment}
+				bilan={diagnostic.data?.bilan ?? null}
+				consommations={diagnostic.data?.consommations ?? null}
+				enveloppe={diagnostic.enveloppe}
+				chauffage={diagnostic.chauffage}
+				ecs={diagnostic.ecs}
+				refroidissement={diagnostic.refroidissement}
+				ventilation={diagnostic.ventilation}
+				production={diagnostic.production}
+			/>
+		</main>
+	</div>
+</Layout>

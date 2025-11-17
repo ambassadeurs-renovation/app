@@ -1,0 +1,5 @@
+export { default as PerformanceBaies } from './PerformanceBaies.astro'
+export { default as PerformanceMurs } from './PerformanceMurs.astro'
+export { default as PerformancePlanchersBas } from './PerformancePlanchersBas.astro'
+export { default as PerformancePlanchersHauts } from './PerformancePlanchersHauts.astro'
+export { default as PerformancePortes } from './PerformancePortes.astro'

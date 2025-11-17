@@ -1,0 +1,93 @@
+---
+import { Enveloppe } from "dpe-audit";
+import { TitleArticle, Details, NavTags } from "@component/Layout";
+import {
+    PerformanceBaies,
+    PerformanceMurs,
+    PerformancePlanchersBas,
+    PerformancePlanchersHauts,
+    PerformancePortes,
+} from "./Elements";
+
+interface Props {
+    murs: Enveloppe.Mur.IMur[];
+    planchersHauts: Enveloppe.PlancherHaut.IPlancherHaut[];
+    planchersBas: Enveloppe.PlancherBas.IPlancherBas[];
+    baies: Enveloppe.Baie.IBaie[];
+    portes: Enveloppe.Porte.IPorte[];
+    class?: string;
+}
+
+const {
+    murs,
+    planchersHauts,
+    planchersBas,
+    baies,
+    portes,
+    class: className = "",
+}: Props = Astro.props;
+
+const tags = [
+    { key: "murs", title: "Murs" },
+    { key: "planchers-hauts", title: "Planchers Hauts" },
+    { key: "planchers-bas", title: "Planchers Bas" },
+    { key: "baies", title: "Baies" },
+    { key: "portes", title: "Portes" },
+];
+---
+
+<div class:list={["card grid gap", className]}>
+    <TitleArticle title="Performance des parois" modal="performance-parois" />
+
+    <div class="grid gap">
+        <NavTags key="performance-parois" tags={tags} current="murs" />
+
+        <div
+            class="tab-content active grid gap"
+            data-tabs-key="performance-parois"
+            data-tab-key="murs"
+        >
+            <PerformanceMurs murs={murs} />
+        </div>
+
+        <div
+            class="tab-content grid gap"
+            data-tabs-key="performance-parois"
+            data-tab-key="planchers-hauts"
+        >
+            <PerformancePlanchersHauts planchersHauts={planchersHauts} />
+        </div>
+
+        <div
+            class="tab-content grid gap"
+            data-tabs-key="performance-parois"
+            data-tab-key="planchers-bas"
+        >
+            <PerformancePlanchersBas planchersBas={planchersBas} />
+        </div>
+
+        <div
+            class="tab-content grid gap"
+            data-tabs-key="performance-parois"
+            data-tab-key="baies"
+        >
+            <PerformanceBaies baies={baies} />
+        </div>
+
+        <div
+            class="tab-content grid gap"
+            data-tabs-key="performance-parois"
+            data-tab-key="portes"
+        >
+            <PerformancePortes portes={portes} />
+        </div>
+    </div>
+
+    <Details>
+        <p><b>SDEP : </b>Surface déperditive en m²</p>
+        <p><b>DP : </b>Part des déperditions thermiques</p>
+        <p>
+            <b>U : </b>Coefficient de transmission thermique en W/m².K
+        </p>
+    </Details>
+</di>

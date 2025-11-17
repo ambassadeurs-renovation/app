@@ -1,0 +1,16 @@
+---
+import { Common } from "dpe-audit";
+import IconEnergie from "./IconEnergie.astro";
+
+interface Props {
+    class?: string;
+    energie: Common.Energie;
+}
+
+const { energie, class: className = "" }: Props = Astro.props;
+const text = Common.energieToString(energie);
+---
+
+<div class="tooltip" data-tip={text}>
+    <IconEnergie energie={energie} class={className} />
+</div>

@@ -1,159 +1,75 @@
 ---
-import { Audit } from "dpe-audit";
-import { loadScenario } from "../../fixtures/scenario";
-import { loadGestes } from "../../fixtures/gestes";
+export const prerender = false;
+
+import Layout from "@layout/Layout.astro";
+import { AppBar, TitleSection } from "@component/Layout";
+import { Gestes } from "@component/Geste";
 import {
-	$audit,
-	$scenario,
-	setScenario,
-	$gestes,
-	setGestes,
-} from "../../stores/user";
-import { Container, Layout, Main } from "../../components/Layout";
-import { Dialog, DialogHeader } from "../../components/Dialog";
-import {
-	ConfortEte,
-	Consommations,
-	Equipements,
-	Gestes,
-	InformationLogement,
-	PerformanceClimatique,
-	PerformanceEnergetique,
-	PerformanceEnveloppe,
-	PerformanceIsolation,
-	RepartitionDeperditions,
-} from "../../components/Audit";
-import { Comparaison } from "../../components/Comparaison";
-import { GesteActions } from "../../components/Actions";
-import Content from "../../components/Content.astro";
+	BatimentHeader,
+	Comparaison,
+	Performance,
+} from "@component/Performance";
+import { ComparaisonSynthese } from "@component/Performance/Comparaison";
+import { getDiagnostic, getGestes, getSimulation } from "../../stores/user";
 
-setScenario(loadScenario());
-setGestes(loadGestes().map((item) => item.titre));
+const diagnostic = getDiagnostic();
+const gestes = getGestes();
+const simulation = getSimulation();
 
-const audit = $audit.get();
-const gestes = $gestes.get();
-const scenario = $scenario.get();
-
-if (null === audit) {
-	return Astro.redirect("/mon-audit");
-}
-if (null === scenario) {
+if (null === diagnostic) {
+	return Astro.redirect("/mon-logement");
+} else if (null === simulation) {
 	return Astro.redirect("/mes-gestes/projet");
 }
 ---
 
-<Layout>
-	<header class="md:hidden bg-primary sticky z-1 top-0 w-full">
-		<GesteActions />
+<Layout title="Mon logement" bar={false}>
+	<AppBar class="block md:hidden" />
 
-		<div class="pb-3 text-center text-white">
-			<p class="font-semibold">
-				{Audit.typeBatimentToString(audit.batiment.type)}
-			</p>
-			<p>{Audit.adresseToString(audit.adresse)}</p>
-		</div>
-	</header>
+	<BatimentHeader class="md:hidden" batiment={diagnostic.batiment} />
 
-	<Container>
-		<Main>
-			<div
-				class="grid gap-6 auto-cols-min grid-cols-1 lg:grid-cols-3 auto-rows-min"
-			>
-				<div
-					class="grid auto-rows-min auto-cols-min grid-cols-1 gap-6 md:grid-cols-2 lg:order-last lg:grid-cols-1"
-				>
-					<Gestes items={gestes} />
+	<div class="container">
+		<main class="grid gap">
+			<section class="card gap">
+				<TitleSection>Mes gestes</TitleSection>
 
-					<div class="md:hidden">
-						<Comparaison origin={audit} target={scenario} />
+				<ComparaisonSynthese
+					diagnostic={diagnostic}
+					simulation={simulation}
+				/>
+
+				<div class="divider"></div>
+
+				<details class="collapse collapse-arrow">
+					<summary class="collapse-title font-semibold p-0">
+						Scénario de travaux
+					</summary>
+					<div class="collapse-content p-0 mt-8">
+						<Gestes actives={gestes} />
 					</div>
+				</details>
+			</section>
 
-					<PerformanceEnergetique
-						etiquette_energie={scenario.data?.etiquette_energie}
-						cef={scenario.data?.cef}
-						cep={scenario.data?.cep}
-					/>
+			<section class="card gap">
+				<TitleSection>Mont impact</TitleSection>
 
-					<PerformanceClimatique
-						etiquette_climat={scenario.data?.etiquette_climat}
-						eges={scenario.data?.eges}
-					/>
-					<PerformanceIsolation
-						performance={scenario.enveloppe.data?.performance}
-					/>
-					<ConfortEte
-						confort_ete={scenario.enveloppe.data?.confort_ete}
-					/>
-					<RepartitionDeperditions
-						deperditions={scenario.enveloppe.data?.deperditions}
-					/>
-				</div>
-				<div
-					class="grid gap-6 auto-rows-min grid-cols-1 lg:order-first lg:col-span-2"
-				>
-					<InformationLogement
-						class="hidden lg:block"
-						batiment={scenario.batiment}
-						adresse={scenario.adresse}
-					/>
-					<div class="hidden lg:block">
-						<Comparaison origin={audit} target={scenario} />
-					</div>
+				<Comparaison diagnostic={diagnostic} simulation={simulation} />
+			</section>
 
-					<Consommations consommations={scenario.data?.consommations} />
-
-					<PerformanceEnveloppe
-						murs={scenario.enveloppe.murs}
-						planchers_bas={scenario.enveloppe.planchers_bas}
-						planchers_hauts={scenario.enveloppe.planchers_hauts}
-						baies={scenario.enveloppe.baies}
-						portes={scenario.enveloppe.portes}
-						ponts_thermiques={scenario.enveloppe.ponts_thermiques}
-					/>
-
-					<Equipements
-						chauffage={audit.chauffage}
-						ecs={audit.ecs}
-						ventilation={audit.ventilation}
-						refroidissement={audit.refroidissement} />
-				</div>
-			</div>
-		</Main>
-	</Container>
-
-	<Dialog name="confort-ete">
-		<DialogHeader>💡 Confort d'été</DialogHeader>
-		<Content name="confort-ete" class="markdown-body" />
-	</Dialog>
-	<Dialog name="consommations-energie">
-		<DialogHeader>💡 Consommations d'énergie</DialogHeader>
-		<Content name="consommations-energie" class="markdown-body" />
-	</Dialog>
-	<Dialog name="deperditions-thermiques">
-		<DialogHeader>💡 Déperditions thermiques</DialogHeader>
-		<Content name="deperditions-thermiques" class="markdown-body" />
-	</Dialog>
-	<Dialog name="performance-climatique">
-		<DialogHeader>💡 Performance climatique</DialogHeader>
-		<Content name="performance-climatique" class="markdown-body" />
-	</Dialog>
-	<Dialog name="performance-energetique">
-		<DialogHeader>💡 Performance énergétique</DialogHeader>
-		<Content name="performance-energetique" class="markdown-body" />
-	</Dialog>
-	<Dialog name="performance-enveloppe">
-		<DialogHeader>💡 Performance de l'enveloppe</DialogHeader>
-		<Content name="performance-enveloppe" class="markdown-body" />
-	</Dialog>
-	<Dialog name="performance-isolation">
-		<DialogHeader>💡 Performance de l'isolation</DialogHeader>
-		<Content name="performance-isolation" class="markdown-body" />
-	</Dialog>
-	<Dialog name="comparaison">
-		<DialogHeader>💡 Comparaison</DialogHeader>
-		<Content name="comparaison" class="markdown-body" />
-	</Dialog>
-	<Dialog name="gestes">
-		<DialogHeader>💡 Gestes</DialogHeader>
-	</Dialog>
+			<section>
+				<Performance
+					showHeader={false}
+					batiment={simulation.batiment}
+					bilan={simulation.data?.bilan ?? null}
+					consommations={simulation.data?.consommations ?? null}
+					enveloppe={simulation.enveloppe}
+					chauffage={simulation.chauffage}
+					ecs={simulation.ecs}
+					refroidissement={simulation.refroidissement}
+					ventilation={simulation.ventilation}
+					production={simulation.production}
+				/>
+			</section>
+		</main>
+	</div>
 </Layout>

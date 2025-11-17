@@ -1,0 +1,16 @@
+---
+import Logo from "@svg/logo/ambassadeur-renov-white.svg";
+
+interface Props {
+  class?: string;
+}
+const { class: className = "" }: Props = Astro.props;
+---
+
+<nav class:list={["navbar py-0 bg-primary flex", className]}>
+  <a class="grow" href="/">
+    <Logo class="w-[180px] h-auto" />
+  </a>
+  <slot name="actions" />
+</nav>
+

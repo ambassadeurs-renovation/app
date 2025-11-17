@@ -1,0 +1,136 @@
+---
+import type { Diagnostic } from "dpe-audit";
+import ClasseClimat from "../Bilan/ClasseClimat.astro";
+import ClasseEnergie from "../Bilan/ClasseEnergie.astro";
+import {
+    PerformanceConfortEteLabel,
+    PerformanceIsolationLabel,
+} from "../Enveloppe";
+import {
+    TitleArticle,
+    Chip,
+    Details,
+    ListItemComparaison,
+} from "@component/Layout";
+
+interface Props {
+    diagnostic: Diagnostic.IDiagnostic;
+    simulation: Diagnostic.IDiagnostic;
+}
+
+const { diagnostic, simulation }: Props = Astro.props;
+---
+
+<article class="grid gap">
+    <TitleArticle title="Performance globale" />
+
+    <ul class="list">
+        <ListItemComparaison label="Etiquette énergie">
+            <ClasseEnergie
+                slot="origin"
+                value={diagnostic.data?.bilan.etiquette_energie}
+                class="w-8 h-8"
+            />
+            <ClasseEnergie
+                slot="target"
+                value={simulation.data?.bilan.etiquette_energie}
+                class="w-8 h-8"
+            />
+        </ListItemComparaison>
+
+        <ListItemComparaison label="Etiquette climat">
+            <ClasseClimat
+                slot="origin"
+                value={diagnostic.data?.bilan.etiquette_climat}
+                class="w-8 h-8"
+            />
+            <ClasseClimat
+                slot="target"
+                value={simulation.data?.bilan.etiquette_climat}
+                class="w-8 h-8"
+            />
+        </ListItemComparaison>
+
+        <ListItemComparaison label="Consommations d'énergie finale">
+            <Chip
+                slot="origin"
+                value={diagnostic.data?.bilan.cef}
+                compare={simulation.data?.bilan.cef}
+            />
+            <Chip
+                slot="target"
+                value={simulation.data?.bilan.cef}
+                compare={diagnostic.data?.bilan.cef}
+            />
+        </ListItemComparaison>
+
+        <ListItemComparaison label="Consommations d'énergie primaire">
+            <Chip
+                slot="origin"
+                value={diagnostic.data?.bilan.cep}
+                compare={simulation.data?.bilan.cep}
+            />
+            <Chip
+                slot="target"
+                value={simulation.data?.bilan.cep}
+                compare={diagnostic.data?.bilan.cep}
+            />
+        </ListItemComparaison>
+
+        <ListItemComparaison label="Emissions de gaz à effet de serre">
+            <Chip
+                slot="origin"
+                value={diagnostic.data?.bilan.eges}
+                compare={simulation.data?.bilan.eges}
+            />
+            <Chip
+                slot="target"
+                value={simulation.data?.bilan.eges}
+                compare={diagnostic.data?.bilan.eges}
+            />
+        </ListItemComparaison>
+        <ListItemComparaison label="Ubat">
+            <PerformanceIsolationLabel
+                slot="origin"
+                value={diagnostic.enveloppe.data?.deperditions.performance}
+                text={diagnostic.enveloppe.data?.deperditions.ubat}
+            />
+            <PerformanceIsolationLabel
+                slot="target"
+                value={simulation.enveloppe.data?.deperditions.performance}
+                text={simulation.enveloppe.data?.deperditions.ubat}
+            />
+        </ListItemComparaison>
+
+        <ListItemComparaison label="Confort d'été">
+            <PerformanceConfortEteLabel
+                slot="origin"
+                value={diagnostic.enveloppe.data?.confort_ete.performance}
+            />
+            <PerformanceConfortEteLabel
+                slot="target"
+                value={simulation.enveloppe.data?.confort_ete.performance}
+            />
+        </ListItemComparaison>
+        <ListItemComparaison label="Déperditions">
+            <Chip
+                slot="origin"
+                value={diagnostic.enveloppe.data?.deperditions.gv}
+                compare={simulation.enveloppe.data?.deperditions.gv}
+            />
+            <Chip
+                slot="target"
+                value={simulation.enveloppe.data?.deperditions.gv}
+                compare={diagnostic.enveloppe.data?.deperditions.gv}
+            />
+        </ListItemComparaison>
+    </ul>
+
+    <Details>
+        <p><b>CEF : </b>Consommations d'énergie finale en kWh/m²/an</p>
+        <p><b>CEP : </b>Consommations d'énergie primaire en kWh/m²/an</p>
+        <p><b>GES : </b>Emissions de gaz à effet de serre en kgCO2/m²/an</p>
+        <p><b>Ubat : </b>Coefficient de déperditions thermiques du bâtiment</p>
+        <p><b>Déperditions : </b>Déperditions thermiques en W/K</p>
+    </Details>
+</article>

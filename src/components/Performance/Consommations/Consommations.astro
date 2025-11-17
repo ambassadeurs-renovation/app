@@ -1,0 +1,123 @@
+---
+import { Common } from "dpe-audit";
+import { TitleArticle, Details, NavTags } from "@component/Layout";
+import ConsommationsEnergie from "./ConsommationsEnergie.astro";
+import ConsommationsUsage from "./ConsommationsUsage.astro";
+
+interface Props {
+    consommations: Common.Consommation[];
+    consommationsChauffage: Common.Consommation[];
+    consommationsEcs: Common.Consommation[];
+    consommationsRefroidissement: Common.Consommation[];
+    consommationsVentilation: Common.Consommation[];
+    class?: string;
+}
+
+const {
+    consommations,
+    consommationsChauffage,
+    consommationsEcs,
+    consommationsRefroidissement,
+    consommationsVentilation,
+    class: className = "",
+}: Props = Astro.props;
+
+const consommationsEclairage = consommations.filter(
+    (item) => item.usage === "eclairage",
+);
+
+const tags = [
+    { key: "ensemble", title: "Ensemble" },
+    { key: "chauffage", title: "Chauffage" },
+    { key: "ecs", title: "Ecs" },
+    { key: "ventilation", title: "Ventilation" },
+    { key: "refroidissement", title: "Refroidissement" },
+    { key: "eclairage", title: "Eclairage" },
+];
+---
+
+<div class:list={["card grid gap", className]}>
+    <TitleArticle title="Consommations" modal="consommations" />
+
+    <NavTags key="consommations" tags={tags} current="ensemble" />
+
+    <div class="scrollbar-x-none xl:overflow-x-auto">
+        <div
+            class="tab-content active"
+            data-tabs-key="consommations"
+            data-tab-key="ensemble"
+        >
+            <div class="grid gap">
+                <ConsommationsEnergie consommations={consommations} />
+                <ConsommationsUsage data={consommations} />
+            </div>
+        </div>
+
+        <div
+            class="tab-content grid gap-6"
+            data-tabs-key="consommations"
+            data-tab-key="chauffage"
+        >
+            <div class="grid gap">
+                <ConsommationsEnergie consommations={consommationsChauffage} />
+                <ConsommationsUsage data={consommationsChauffage} />
+            </div>
+        </div>
+
+        <div
+            class="tab-content grid gap-6"
+            data-tabs-key="consommations"
+            data-tab-key="ecs"
+        >
+            <div class="grid gap">
+                <ConsommationsEnergie consommations={consommationsEcs} />
+                <ConsommationsUsage data={consommationsEcs} />
+            </div>
+        </div>
+
+        <div
+            class="tab-content grid gap-6"
+            data-tabs-key="consommations"
+            data-tab-key="ventilation"
+        >
+            <div class="grid gap">
+                <ConsommationsEnergie
+                    consommations={consommationsVentilation}
+                />
+                <ConsommationsUsage data={consommationsVentilation} />
+            </div>
+        </div>
+
+        <div
+            class="tab-content grid gap-6"
+            data-tabs-key="consommations"
+            data-tab-key="refroidissement"
+        >
+            <div class="grid gap">
+                <ConsommationsEnergie
+                    consommations={consommationsRefroidissement}
+                />
+                <ConsommationsUsage data={consommationsRefroidissement} />
+            </div>
+        </div>
+
+        <div
+            class="tab-content grid gap-6"
+            data-tabs-key="consommations"
+            data-tab-key="eclairage"
+        >
+            <div class="grid gap">
+                <ConsommationsEnergie consommations={consommationsEclairage} />
+                <ConsommationsUsage data={consommationsEclairage} />
+            </div>
+        </div>
+    </div>
+
+    <Details>
+        <p><b>CEF : </b>Consommation d'Energie Finale en kWh</p>
+        <p><b>CEP : </b>Consommation d'Energie Primaire en kWh</p>
+        <p>
+            <b>EGES : </b>Emissions de Gaz à Effet de Serre en kgCO2e
+        </p>
+    </Details>
+</div>

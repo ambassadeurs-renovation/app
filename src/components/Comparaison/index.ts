@@ -1,6 +1,0 @@
-export { default as Comparaison } from './Comparaison.astro'
-export { default as Bilan } from './Bilan.astro'
-export { default as ConsommationsEnergie } from './ConsommationsEnergie.astro'
-export { default as ConsommationsUsage } from './ConsommationsUsage.astro'
-export { default as Deperditions } from './Deperditions.astro'
-export { default as Performances } from './Performances.astro'

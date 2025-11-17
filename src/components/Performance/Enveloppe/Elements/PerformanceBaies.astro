@@ -1,0 +1,76 @@
+---
+import { Enveloppe } from "dpe-audit";
+import PerformanceParoiLabel from "../PerformanceParoiLabel.astro";
+
+interface Props {
+    baies: Enveloppe.Baie.IBaie[];
+    class?: string;
+}
+
+const { baies, class: className = "" }: Props = Astro.props;
+
+const sdep = baies.reduce((acc, item) => acc + (item.data?.sdep ?? 0), 0);
+const dp = baies.reduce((acc, item) => acc + (item.data?.dp ?? 0), 0);
+
+const tableData = baies
+    .map((item) => ({
+        type: Enveloppe.Baie.typeBaieToString(item.type),
+        vitrage: Enveloppe.Baie.typeVitrageToString(item.vitrage.type),
+        sdep: item.data?.sdep ? Math.trunc(item.data.sdep) : null,
+        u: item.data?.u ? item.data.u.toFixed(2) : "-",
+        performance: item.data?.performance ?? null,
+        dp: item.data?.dp ? Math.round((item.data.dp / dp) * 100) : null,
+    }))
+    .sort((a, b) => {
+        if (a.dp === null && b.dp === null) return 0;
+        if (a.dp === null) return 1;
+        if (b.dp === null) return -1;
+        return b.dp - a.dp;
+    });
+---
+
+<div class={className}>
+    <table class="table table-element">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>U</th>
+                <th>SDEP</th>
+                <th>DP</th>
+            </tr>
+        </thead>
+        <tbody>
+            {
+                tableData.map((item) => (
+                    <tr>
+                        <td>
+                            {item.type}
+                            <br />
+                            {item.vitrage}
+                        </td>
+                        <td>
+                            {item.u && item.performance ? (
+                                <PerformanceParoiLabel
+                                    value={item.performance}
+                                    text={item.u}
+                                />
+                            ) : (
+                                "-"
+                            )}
+                        </td>
+                        <td>{item.sdep}</td>
+                        <td>{item.dp} %</td>
+                    </tr>
+                ))
+            }
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td colspan="2">Total</td>
+                <td>{Math.trunc(sdep)}</td>
+                <td>100 %</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

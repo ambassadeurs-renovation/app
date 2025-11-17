@@ -1,0 +1,80 @@
+---
+import * as DPEAudit from "dpe-audit";
+import { Batiment } from "./Batiment";
+import { Bilan } from "./Bilan";
+import { Consommations } from "./Consommations";
+import { PerformanceEnveloppe } from "./Enveloppe";
+import { PerformanceElements } from "./Enveloppe";
+import { RepartitionDeperditions } from "./Enveloppe";
+import { PerformanceEquipements } from "./Equipements";
+
+interface Props {
+    class?: string;
+    showHeader?: boolean;
+    batiment: DPEAudit.Batiment.Batiment;
+    bilan: DPEAudit.Common.Bilan | null;
+    consommations: DPEAudit.Common.Consommations | null;
+    enveloppe: DPEAudit.Enveloppe.IEnveloppe;
+    chauffage: DPEAudit.Chauffage.IChauffage;
+    ecs: DPEAudit.Ecs.IEcs;
+    refroidissement: DPEAudit.Refroidissement.IRefroidissement;
+    ventilation: DPEAudit.Ventilation.IVentilation;
+    production: DPEAudit.Production.IProduction;
+}
+
+const {
+    batiment,
+    bilan,
+    consommations,
+    enveloppe,
+    chauffage,
+    ecs,
+    refroidissement,
+    ventilation,
+    production,
+    class: className = "",
+    showHeader = true,
+}: Props = Astro.props;
+---
+
+<section class="flex flex-col gap items-start lg:flex-row">
+    <div class="grid gap w-full grow lg:max-w-sm lg:grid lg:order-last">
+        {showHeader && <Batiment class="hidden md:block lg:hidden" batiment={batiment} />}
+
+        <Bilan bilan={bilan} />
+
+        <Consommations
+            consommations={consommations ?? []}
+            consommationsChauffage={chauffage.data?.consommations ?? []}
+            consommationsEcs={ecs.data?.consommations ?? []}
+            consommationsRefroidissement={refroidissement.data?.consommations ??
+                []}
+            consommationsVentilation={ventilation.data?.consommations ?? []}
+        />
+    </div>
+
+    <div class="grid gap w-full grow">
+        {showHeader && <Batiment class="hidden lg:block" batiment={batiment} />}
+
+        <PerformanceEnveloppe enveloppe={enveloppe} />
+
+        <RepartitionDeperditions
+            deperditions={enveloppe.data?.deperditions ?? null}
+        />
+
+        <PerformanceElements
+            murs={enveloppe.murs}
+            planchersBas={enveloppe.planchers_bas}
+            planchersHauts={enveloppe.planchers_hauts}
+            baies={enveloppe.baies}
+            portes={enveloppe.portes}
+        />
+
+        <PerformanceEquipements
+            chauffage={chauffage}
+            ecs={ecs}
+            refroidissement={refroidissement}
+            ventilation={ventilation}
+        />
+    </div>
+</section>

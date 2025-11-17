@@ -1,0 +1,29 @@
+---
+interface Props {
+    key: string;
+    tags: string[];
+}
+
+const { key, tags } = Astro.props;
+
+const uniques = [...new Set(tags)].map((tag) => {
+    return {
+        title: tag,
+        counter: tags.filter((item) => item.includes(tag)).length,
+    };
+});
+---
+
+<form class="tags flex flex-wrap gap-2" data-key={key}>
+    {
+        uniques.map((item) => (
+            <input
+                class="tag btn"
+                type="checkbox"
+                name={key}
+                aria-label={item.title}
+            />
+        ))
+    }
+    <input class="btn btn-square" type="reset" value="×" />
+</form>

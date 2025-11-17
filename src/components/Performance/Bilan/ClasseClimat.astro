@@ -1,0 +1,14 @@
+---
+import { Common } from "dpe-audit";
+import { getClasseClimat } from "./utils";
+
+interface Props {
+    class?: string;
+    value?: Common.EtiquetteClimat | null;
+}
+
+const { value = null, class: className = "" }: Props = Astro.props;
+const Image = value ? getClasseClimat(value) : null;
+---
+
+{Image ? <Image class={className} /> : <span>-</span>}

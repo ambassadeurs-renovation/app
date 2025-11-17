@@ -1,24 +1,24 @@
 ---
-import { ressources } from "../../data/ressources.ts";
-import { Container, Layout, Main, Section, Title } from "../../components/Layout/index.ts";
-import { Ressources as Collection } from "../../components/Collection/index.ts";
+import { getRessources } from "../../data/ressources";
+import Layout from "@layout/Layout.astro";
+import { TitleSection } from "@component/Layout";
+import { Ressources as Collection } from "@component/Ressources";
+
+const ressources = getRessources();
 ---
 
-<Layout>
-    <Container size="md">
-        <Main>
-            <Section>
-                <Title>
-                    🧰 Ressources et outils
+<Layout title="🧰 Ressources et outils">
+    <div class="container">
+        <main>
+            <section class="card gap">
+                <TitleSection>🧰 Ressources et outils</TitleSection>
 
-                    <p slot="description">
-                        Vidéos, podcasts, quizz ou services pour tout savoir sur
-                        la rénovation énergétique.
-                    </p>
-                </Title>
-
-                <Collection items={ressources} />
-            </Section>
-        </Main>
-    </Container>
+                <p>
+                    Vidéos, podcasts, quizz ou services pour tout savoir sur la
+                    rénovation énergétique.
+                </p>
+                <Collection ressources={ressources} />
+            </section>
+        </main>
+    </div>
 </Layout>

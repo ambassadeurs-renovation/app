@@ -1,0 +1,57 @@
+---
+import { Chauffage } from "dpe-audit";
+import { IconEnergieTooltip } from "@component/Performance";
+
+interface Props {
+    generateurs: Chauffage.Generateur.IGenerateur[];
+    class?: string;
+}
+
+const { generateurs, class: className = "" }: Props = Astro.props;
+
+const tableData = generateurs.map((item) => ({
+    description: item.description,
+    type: item.type
+        ? Chauffage.Generateur.typeGenerateurToString(item.type)
+        : "-",
+    energie: item.energie
+        ? Chauffage.Generateur.energieGenerateurToEnum(item.energie)
+        : null,
+    annee: item.annee_installation ?? "-",
+    rg: item.data?.rg ? `${Math.trunc(item.data.rg * 100)} %` : "-",
+}));
+---
+
+<div class={className}>
+    <table class="table table-element">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>ENERGIE</th>
+                <th>ANNÉE</th>
+                <th>RG</th>
+            </tr>
+        </thead>
+        <tbody>
+            {
+                tableData.map((item) => (
+                    <tr>
+                        <td>{item.type}</td>
+                        <td>
+                            {item.energie ? (
+                                <IconEnergieTooltip
+                                    class="color-primary w-4 h-4"
+                                    energie={item.energie}
+                                />
+                            ) : (
+                                "-"
+                            )}
+                        </td>
+                        <td>{item.annee}</td>
+                        <td>{item.rg}</td>
+                    </tr>
+                ))
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,20 +1,59 @@
-import { atom } from 'nanostores'
-import { Audit } from 'dpe-audit'
+import { persistentMap } from '@nanostores/persistent'
+import type { Diagnostic } from 'dpe-audit'
 
-export const $audit = atom<Audit.Audit | null>(null)
-export const setAudit = (audit: Audit.Audit) => $audit.set(audit)
-export const clearAudit = () => $audit.set(null)
+type User = {
+  diagnostic: Diagnostic.IDiagnostic | null
+  gestes: string[]
+  simulation: Diagnostic.IDiagnostic | null
+}
 
-export const $scenario = atom<Audit.Audit | null>(null)
-export const setScenario = (scenario: Audit.Audit) => $scenario.set(scenario)
-export const clearScenario = () => $scenario.set(null)
+export const $user = persistentMap<User>(
+  'user',
+  {
+    diagnostic: null,
+    gestes: [],
+    simulation: null
+  },
+  {
+    encode: value => JSON.stringify(value),
+    decode: value => JSON.parse(value)
+  }
+)
 
-export const $gestes = atom<string[]>([])
-export const setGestes = (gestes: string[]) => $gestes.set(gestes)
-export const addGeste = (geste: string) =>
-  !hasGeste(geste) ? $gestes.set([...$gestes.get(), geste]) : null
-export const removeGeste = (geste: string) =>
-  $gestes.set($gestes.get().filter(item => item !== geste))
-export const hasGeste = (geste: string) =>
-  $gestes.get().find(item => item === geste) !== undefined
-export const clearGestes = () => $gestes.set([])
+export const getDiagnostic = () => $user.get().diagnostic
+
+export const getGestes = () => $user.get().gestes
+
+export const getSimulation = () => $user.get().simulation
+
+export const setDiagnostic = (value: Diagnostic.IDiagnostic) => {
+  $user.set({
+    diagnostic: value,
+    gestes: [],
+    simulation: null
+  })
+}
+
+export const setGestes = (gestes: string[]) => {
+  $user.setKey('gestes', gestes)
+  $user.setKey('simulation', null)
+}
+
+export const setSimulation = (simulation: Diagnostic.IDiagnostic) => {
+  $user.setKey('simulation', simulation)
+}
+
+export const clearUser = () => {
+  $user.setKey('diagnostic', null)
+  $user.setKey('gestes', [])
+  $user.setKey('simulation', null)
+}
+
+export const clearGestes = () => {
+  $user.setKey('gestes', [])
+  $user.setKey('simulation', null)
+}
+
+export const clearSimulation = () => {
+  $user.setKey('simulation', null)
+}

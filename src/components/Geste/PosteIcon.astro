@@ -1,0 +1,36 @@
+---
+import { Icon } from "astro-icon/components";
+import { TypePoste } from "../../data/gestes";
+
+interface Props {
+    class?: string;
+    poste: TypePoste;
+}
+
+const { poste, class: className = "" }: Props = Astro.props;
+
+const icon = ((poste: TypePoste) => {
+    switch (poste) {
+        case TypePoste.isolation_murs:
+            return "poste/isolation-murs";
+        case TypePoste.isolation_planchers_bas:
+            return "poste/isolation-planchers-bas";
+        case TypePoste.isolation_planchers_hauts:
+            return "poste/isolation-planchers-hauts";
+        case TypePoste.remplacement_menuiseries:
+            return "poste/remplacement-menuiseries";
+        case TypePoste.protection_solaire:
+            return "poste/protection-solaire";
+        case TypePoste.chauffage:
+            return "poste/chauffage";
+        case TypePoste.eau_chaude_sanitaire:
+            return "poste/eau-chaude-sanitaire";
+        case TypePoste.ventilation:
+            return "poste/ventilation";
+        case TypePoste.refroidissement:
+            return "poste/refroidissement";
+    }
+})(poste);
+---
+
+<Icon class={className} name={icon} width={58} height={58} />

@@ -1,0 +1,92 @@
+---
+import { AppBar, Header, Footer, Modal, NavBarBottom } from "@component/Layout";
+import ConsommationsContent from "../contents/tutoriels/consommations.md";
+import PerformanceGlobaleContent from "../contents/tutoriels/performance-globale.md";
+import PerformanceEnveloppeContent from "../contents/tutoriels/performance-enveloppe.md";
+import PerformanceParoisContent from "../contents/tutoriels/performance-parois.md";
+import PerformanceEquipementsContent from "../contents/tutoriels/performance-equipements.md";
+import RepartitionDeperditionsContent from "../contents/tutoriels/repartition-deperditions.md";
+
+import "@style/global.css";
+
+interface Props {
+	title: string;
+	bar?: boolean | null;
+}
+
+const { title, bar = true }: Props = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="text-md bg-color">
+		<Header class="hidden md:block" />
+
+		{bar ? <AppBar class="block md:hidden" /> : null}
+
+		<slot />
+
+		<NavBarBottom class="md:hidden" />
+
+		<Footer />
+
+		<Modal name="performance-globale">
+			<PerformanceGlobaleContent />
+		</Modal>
+		<Modal name="consommations">
+			<ConsommationsContent />
+		</Modal>
+		<Modal name="repartition-deperditions">
+			<RepartitionDeperditionsContent />
+		</Modal>
+		<Modal name="performance-enveloppe">
+			<PerformanceEnveloppeContent />
+		</Modal>
+		<Modal name="performance-parois">
+			<PerformanceParoisContent />
+		</Modal>
+		<Modal name="performance-equipements">
+			<PerformanceEquipementsContent />
+		</Modal>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		position: relative;
+		margin: 0;
+	}
+</style>
+
+<script>
+	import { setTabs, subscribeTabs } from "../stores/tabs";
+	import { addTagsEventListeners, subscribeTags } from "../stores/tags";
+
+	subscribeTabs();
+	setTabs();
+
+	addTagsEventListeners();
+	subscribeTags();
+
+	document.querySelectorAll(".modal-btn").forEach((btn) => {
+		const name = btn.getAttribute("data-name");
+
+		if (null === name) {
+			return;
+		}
+
+		const modal = document.getElementById(name) as HTMLDialogElement | null;
+
+		if (modal) {
+			btn.addEventListener("click", () => modal.showModal());
+		}
+	});
+</script>

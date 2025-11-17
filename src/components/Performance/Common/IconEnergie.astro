@@ -1,0 +1,15 @@
+---
+import { Common } from "dpe-audit";
+import { getEnergieIcon } from "./utils";
+
+interface Props {
+    class?: string;
+    energie: Common.Energie;
+}
+
+const { energie, class: className = "" }: Props = Astro.props;
+
+const Icon = getEnergieIcon(energie);
+---
+
+<Icon class={className} />

@@ -1,0 +1,31 @@
+---
+import { NavBarTop } from "@component/Layout";
+import Logo from "@svg/logo/ambassadeur-renov.svg";
+
+interface Props {
+    class?: string;
+}
+
+const { class: className = "" }: Props = Astro.props;
+---
+
+<header class:list={["bg-white h-[78px]", className]}>
+    <div
+        class="w-full md:max-w-7xl h-full flex items-center mx-auto"
+    >
+        <div class="grow">
+            <a href="/">
+                <Logo class="w-[200px] h-auto" />
+            </a>
+        </div>
+        <div class="hidden md:block h-full">
+            <NavBarTop class="h-full" />
+        </div>
+    </div>
+</header>
+
+<style>
+    header {
+        border-bottom: solid 1px var(--color-primary-content);
+    }
+</style>

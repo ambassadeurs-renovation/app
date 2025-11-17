@@ -1,0 +1,15 @@
+---
+import { Common } from "dpe-audit";
+import { getUsageIcon } from "./utils";
+
+interface Props {
+    class?: string;
+    usage: Common.Usage;
+}
+
+const { usage, class: className = "" }: Props = Astro.props;
+
+const Icon = getUsageIcon(usage);
+---
+
+<Icon class={className} />

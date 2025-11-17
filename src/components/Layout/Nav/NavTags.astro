@@ -1,0 +1,38 @@
+---
+interface Props {
+    key: string;
+    current?: string | null;
+    tags: { key: string; title: string }[];
+    class?: string;
+}
+
+const { key, current = null, tags, class: className = "" }: Props = Astro.props;
+---
+
+<nav
+    class:list={["tabs flex flex-wrap gap-2 items-center text-center", className]}
+    data-tabs-key={key}
+    data-tabs-current={current}
+>
+    {
+        tags.map((tag) => (
+            <button
+                data-tab-key={tag.key}
+                class="tab px-2 bg-color rounded-full whitespace-nowrap font-medium"
+            >
+                {tag.title}
+            </button>
+        ))
+    }
+</nav>
+
+<style>
+    .tab {
+        border: solid 2px transparent;
+
+        &.active {
+            color: var(--color-black);
+            border-color: var(--color-primary);
+        }
+    }
+</style>

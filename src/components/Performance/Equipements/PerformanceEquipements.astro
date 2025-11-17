@@ -1,0 +1,85 @@
+---
+import { Chauffage, Ecs, Ventilation, Refroidissement } from "dpe-audit";
+import { TitleArticle, Details, NavTags } from "@component/Layout";
+import PerformanceChauffage from "./PerformanceChauffage.astro";
+import PerformanceEcs from "./PerformanceEcs.astro";
+import PerformanceVentilation from "./PerformanceVentilation.astro";
+import PerformanceRefroidissement from "./PerformanceRefroidissement.astro";
+
+interface Props {
+    chauffage: Chauffage.IChauffage;
+    ecs: Ecs.IEcs;
+    ventilation: Ventilation.IVentilation;
+    refroidissement: Refroidissement.IRefroidissement;
+    class?: string;
+}
+
+const {
+    chauffage,
+    ecs,
+    ventilation,
+    refroidissement,
+    class: className = "",
+}: Props = Astro.props;
+
+const tags = [
+    { key: "chauffage", title: "Chauffage" },
+    { key: "ecs", title: "ECS" },
+    { key: "ventilation", title: "Ventilation" },
+    { key: "refroidissement", title: "Refroidissement" },
+];
+---
+
+<div class:list={["card grid gap", className]}>
+    <TitleArticle
+        title="Performance des équipements"
+        modal="performance-equipements"
+    />
+
+    <div class="grid gap">
+        <NavTags
+            key="performance-equipements"
+            tags={tags}
+            current="chauffage"
+        />
+
+        <div
+            class="tab-content active grid gap"
+            data-tabs-key="performance-equipements"
+            data-tab-key="chauffage"
+        >
+            <PerformanceChauffage generateurs={chauffage.generateurs} />
+        </div>
+
+        <div
+            class="tab-content grid gap"
+            data-tabs-key="performance-equipements"
+            data-tab-key="ecs"
+        >
+            <PerformanceEcs generateurs={ecs.generateurs} />
+        </div>
+
+        <div
+            class="tab-content grid gap"
+            data-tabs-key="performance-equipements"
+            data-tab-key="ventilation"
+        >
+            <PerformanceVentilation generateurs={ventilation.generateurs} />
+        </div>
+
+        <div
+            class="tab-content grid gap"
+            data-tabs-key="performance-equipements"
+            data-tab-key="refroidissement"
+        >
+            <PerformanceRefroidissement
+                generateurs={refroidissement.generateurs}
+            />
+        </div>
+    </div>
+
+    <Details>
+        <p><b>RG : </b>Rendement de génération</p>
+        <p><b>EER : </b>Coefficient d'efficacité énergétique</p>
+    </Details>
+</div>

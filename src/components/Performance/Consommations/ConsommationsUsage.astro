@@ -1,0 +1,52 @@
+---
+import { Common } from "dpe-audit";
+import { IconUsage } from "@component/Performance";
+import { dataTableByUsages } from "./utils";
+
+interface Props {
+    class?: string;
+    data: Common.Consommation[];
+}
+
+const { data, class: className = "" }: Props = Astro.props;
+
+const { tableBody, tableFooter } = dataTableByUsages(data);
+---
+
+<table class:list={["table scrollbar-x-none xl:overflow-x-auto", className]}>
+    <thead>
+        <tr>
+            <th>Usage</th>
+            <th>EP</th>
+            <th>EF</th>
+            <th>EGES</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {
+            tableBody.map((item) => (
+                <tr>
+                    <td>
+                        <IconUsage
+                            usage={item.usage}
+                            class="color-primary w-4 h-4"
+                        />
+                        {Common.usageToString(item.usage)}
+                    </td>
+                    <td>{Math.round(item.cef)} %</td>
+                    <td>{Math.round(item.cep)} %</td>
+                    <td>{Math.round(item.eges)} %</td>
+                </tr>
+            ))
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>Total</td>
+            <td>{Math.round(tableFooter.cef).toLocaleString()}</td>
+            <td>{Math.round(tableFooter.cep).toLocaleString()}</td>
+            <td>{Math.round(tableFooter.eges).toLocaleString()}</td>
+        </tr>
+    </tfoot>
+</table>
