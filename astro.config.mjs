@@ -1,11 +1,12 @@
 // @ts-check
 import { defineConfig } from 'astro/config'
 import tailwindcss from '@tailwindcss/vite'
-import node from '@astrojs/node'
 
 import icon from 'astro-icon'
 
-import react from '@astrojs/react';
+import react from '@astrojs/react'
+
+import vercel from '@astrojs/vercel'
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,11 +14,12 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  adapter: node({
-    mode: 'standalone'
-  }),
+  adapter: vercel(),
 
-  integrations: [icon({
-    iconDir: 'src/assets/icons'
-  }), react()]
+  integrations: [
+    icon({
+      iconDir: 'src/assets/icons'
+    }),
+    react()
+  ]
 })

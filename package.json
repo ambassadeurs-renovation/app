@@ -11,6 +11,7 @@
   "dependencies": {
     "@astrojs/node": "^9.2.1",
     "@astrojs/react": "^4.4.2",
+    "@astrojs/vercel": "^9.0.0",
     "@nanostores/persistent": "^1.2.0",
     "@tailwindcss/vite": "^4.0.12",
     "@types/react-dom": "^19.2.3",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
     "@types/js-yaml": "^4.0.9",
-    "@types/react": "^19.2.5"
+    "@types/react": "^19.2.5",
+    "tsup": "^8.5.1"
   }
 }
