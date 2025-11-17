@@ -44,9 +44,9 @@ const { tableBody, tableFooter } = dataTableByUsages(data);
     <tfoot>
         <tr>
             <td>Total</td>
-            <td>{Math.round(tableFooter.cef).toLocaleString()}</td>
-            <td>{Math.round(tableFooter.cep).toLocaleString()}</td>
-            <td>{Math.round(tableFooter.eges).toLocaleString()}</td>
+            <td>{Math.trunc(tableFooter.cef).toLocaleString('fr-FR')}</td>
+            <td>{Math.trunc(tableFooter.cep).toLocaleString('fr-FR')}</td>
+            <td>{Math.trunc(tableFooter.eges).toLocaleString('fr-FR')}</td>
         </tr>
     </tfoot>
 </table>

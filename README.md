@@ -27,6 +27,10 @@ Code source de l'application pédagogique des Ambassadeurs de la rénovation.
 - ambassadeurrenov.fr
 - ambassadeurrenov.com
 
+## Déploiement
+
+Projet déployé avec Vercel.
+
 ## Fonctionnalités
 
 ### Analyse de la performance énergétique des logements
